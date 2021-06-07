@@ -1,0 +1,48 @@
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu:wght@300;400;500;700&display=swap");
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #5cdb95;
+  font-family: "Ubuntu", sans-serif;
+}
+
+header {
+  width: 90%;
+  margin: auto;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  color: #05386b;
+}
+header #title {
+  font-family: "Fredoka One", cursive;
+  font-size: 6vw;
+  color: #edf5e1;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px;
+}
+header #title #o:hover, header #title #u:hover, header #title #a:hover, header #title #i:hover, header #title #z:hover, header #title #e:hover, header #title #u2:hover, header #title #r:hover {
+  -webkit-text-fill-color: initial;
+  -webkit-text-stroke: 0px;
+}
+@media screen and (max-width: 1200px) {
+  header #title {
+    font-size: 10.5vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  header #title {
+    font-size: 12vw;
+    -webkit-text-stroke: 2px;
+  }
+}
+header h3 {
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=style.css.map */

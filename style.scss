@@ -1,0 +1,70 @@
+@use "sass:math";
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+$dark-blue: #05386b;
+$dark-green: #379683;
+$green: #5cdb95;
+$bright-green: #8ee4af;
+$bright-beige: #edf5e1;
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: $green;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+@mixin font-size($size) {
+    @if ($size > 6) {
+        font-size: $size + math.div($size, 2) + vw;
+    } @else {
+        font-size: $size + vw;
+    }
+}
+
+header {
+    width: 90%;
+    margin: auto;
+    margin-top: 200px;
+    //border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: $dark-blue;
+
+    #title {
+        font-family: 'Fredoka One', cursive;
+        @include font-size(6);
+        color: $bright-beige;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 3px;
+
+        #o, #u, #a, #i, #z, #e, #u2, #r {
+            &:hover {
+                -webkit-text-fill-color: initial;
+                -webkit-text-stroke: 0px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        #title {
+            @include font-size(6+1);
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        #title {
+            @include font-size(6+2);
+            -webkit-text-stroke: 2px;
+        }
+    }
+
+    h3 {
+        font-weight: 500;   
+    }
+}
