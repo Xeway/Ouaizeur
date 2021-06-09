@@ -35,10 +35,25 @@ header {
     flex-direction: column;
     text-align: center;
     justify-content: center;
+    align-items: center;
     color: $dark-blue;
 
     & > * {
         margin: 2.5vw 0 2.5vw 0;
+    }
+
+    #title-illustration {
+        display: flex;
+        border: 2px solid black;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #weather-png {
+        width: 30vw;
+        position: relative;
+        right: 20vw;
+        z-index: -1;
     }
 
     #title {
@@ -47,6 +62,9 @@ header {
         color: $bright-beige;
         -webkit-text-fill-color: transparent;
         -webkit-text-stroke: 3px;
+        margin: auto;
+        text-align: center;
+        white-space: nowrap;
 
         #o, #u, #a, #i, #z, #e, #u2, #r {
             &:hover {
@@ -59,7 +77,6 @@ header {
     hr {
         border: .2vmax dashed $dark-green;
         width: 80%;
-        margin: auto;
     }
 
     #slogan {
@@ -72,7 +89,6 @@ header {
         height: 3vw;
         font-size: 2.5vw;
         text-align: center;
-        margin: auto;
         border: none;
         border-radius: 2vw 1vw;
         padding: 1em;

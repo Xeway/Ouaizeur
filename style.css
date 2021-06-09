@@ -19,10 +19,23 @@ header {
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  align-items: center;
   color: #05386b;
 }
 header > * {
   margin: 2.5vw 0 2.5vw 0;
+}
+header #title-illustration {
+  display: flex;
+  border: 2px solid black;
+  justify-content: center;
+  align-items: center;
+}
+header #weather-png {
+  width: 30vw;
+  position: relative;
+  right: 20vw;
+  z-index: -1;
 }
 header #title {
   font-family: "Fredoka One", cursive;
@@ -30,6 +43,9 @@ header #title {
   color: #edf5e1;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 3px;
+  margin: auto;
+  text-align: center;
+  white-space: nowrap;
 }
 header #title #o:hover, header #title #u:hover, header #title #a:hover, header #title #i:hover, header #title #z:hover, header #title #e:hover, header #title #u2:hover, header #title #r:hover {
   -webkit-text-fill-color: initial;
@@ -38,7 +54,6 @@ header #title #o:hover, header #title #u:hover, header #title #a:hover, header #
 header hr {
   border: 0.2vmax dashed #379683;
   width: 80%;
-  margin: auto;
 }
 header #slogan {
   font-weight: 500;
@@ -49,7 +64,6 @@ header #city-name {
   height: 3vw;
   font-size: 2.5vw;
   text-align: center;
-  margin: auto;
   border: none;
   border-radius: 2vw 1vw;
   padding: 1em;
