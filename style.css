@@ -13,8 +13,6 @@ header {
   width: 90%;
   height: 90%;
   margin: auto;
-  margin-top: 200px;
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -27,22 +25,20 @@ header > * {
 }
 header #title-illustration {
   display: flex;
-  border: 2px solid black;
   justify-content: center;
   align-items: center;
-}
-header #weather-png {
-  width: 30vw;
-  position: relative;
-  right: 20vw;
-  z-index: -1;
+  width: 50vw;
+  height: 20vw;
+  background: url("src/background-picture.png") no-repeat;
+  background-size: 25vw;
+  background-position: center;
 }
 header #title {
   font-family: "Fredoka One", cursive;
   font-size: 6vw;
   color: #edf5e1;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 3px;
+  -webkit-text-stroke: 0.35vw;
   margin: auto;
   text-align: center;
   white-space: nowrap;
@@ -75,7 +71,31 @@ header #city-name:focus {
   border: 0.3vmax dashed #05386b;
   outline: none;
 }
+header #button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 3vw;
+  font-size: 2.5vw;
+  text-align: center;
+  border: none;
+  border-radius: 2vw;
+  padding: 1em;
+  outline: 0.35vw solid #edf5e1;
+  background-color: #05386b;
+  color: #5cdb95;
+}
+header #button:active {
+  background-color: #5cdb95;
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, darkViolet, magenta, red);
+}
 @media screen and (max-width: 1200px) {
+  header #title-illustration {
+    width: 70vw;
+    height: 30vw;
+    background-size: 35vw;
+  }
   header #title {
     font-size: 9.3333333333vw;
   }
@@ -88,9 +108,13 @@ header #city-name:focus {
   }
 }
 @media screen and (max-width: 600px) {
+  header #title-illustration {
+    width: 80vw;
+    height: 35vw;
+    background-size: 40vw;
+  }
   header #title {
     font-size: 10.6666666667vw;
-    -webkit-text-stroke: 2px;
   }
   header #slogan {
     font-size: 4vw;
