@@ -125,4 +125,67 @@ header #button:active {
   }
 }
 
+section {
+  display: none;
+  padding-top: 3vw;
+  color: #05386b;
+  width: 90%;
+  margin: auto;
+}
+section #header-infos {
+  display: flex;
+  justify-content: space-between;
+}
+section #buttons-scale-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  font-weight: 500;
+  width: 18vw;
+}
+section #buttons-scale-forecast > * {
+  border-radius: 0.5vw;
+  color: #edf5e1;
+  width: 18vw;
+  text-align: center;
+}
+section #buttons-scale-forecast .active-button-scale-forecast {
+  background-color: #edf5e1;
+  border: 0.2vw solid #379683;
+  color: #379683;
+}
+section #general-infos {
+  font-size: 1.8vw;
+}
+section img {
+  width: 12vw;
+  height: 12vw;
+}
+section #current-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+}
+section #current-weather #current-condition {
+  font-weight: 500;
+  font-size: 2.5vw;
+}
+section #current-weather #current-temp {
+  margin-top: 2vw;
+}
+section #current-weather #current-temp #current-temp-c {
+  margin-right: 1vw;
+}
+section #current-weather #current-temp #current-temp-feelslike-c {
+  margin-left: 1vw;
+}
+
+aside #error {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -161,3 +161,79 @@ header {
         }
     }
 }
+
+section {
+    display: none;
+    padding-top: 3vw;
+    color: $dark-blue;
+    width: 90%;
+    margin: auto;
+
+    #header-infos {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #buttons-scale-forecast {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5vw;
+        font-weight: 500;
+        width: 18vw;
+
+        & > * {
+            border-radius: .5vw;
+            color: $bright-beige;
+            width: 18vw;
+            text-align: center;
+        }
+
+        .active-button-scale-forecast {
+            background-color: $bright-beige;
+            border: .2vw solid $dark-green;
+            color: $dark-green;
+        }
+    }
+
+    #general-infos {
+        font-size: 1.8vw;
+    }
+
+    img {
+        width: 12vw;
+        height: 12vw;
+    }
+
+    #current-weather {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2vw;
+
+        #current-condition {
+            font-weight: 500;
+            font-size: 2.5vw;
+        }
+
+        #current-temp {
+            margin-top: 2vw;
+
+            #current-temp-c {
+                margin-right: 1vw;
+            }
+
+            #current-temp-feelslike-c {
+                margin-left: 1vw;
+            }
+        }
+    }
+}
+
+aside {
+    #error {
+        display: none;
+    }
+}

@@ -22,9 +22,35 @@
       </div>
       <hr/>
       <h3 id="slogan">Tu veux rencontrer des journées chaudes 🔥 (ou pas) dans ta région ?</h3>
-      <input type="text" placeholder="Nom de ta ville" id="city-name"/>
+      <input type="text" placeholder="Nom de ton bled" id="city-name"/>
       <button id="button">Zééé partiii</button>
     </header>
+    <section>
+      <div id="header-infos">
+        <div id="general-infos">
+          <h3 id="name-city"></h3>
+          <h5 id="current-hour"></h5>
+        </div>
+        <div id="buttons-scale-forecast">
+          <div id="button-today" class="active-button-scale-forecast">Today</div>
+          <div id="button-tomorrow">Tomorrow</div>
+          <div id="button-after-tomorrow">The day after tomorrow</div>
+        </div>
+      </div>
+      <h3 id="name-city"></h3>
+      <h5 id="current-hour"></h5>
+      <div id="current-weather">
+        <img src="" id="current-icon"/>
+        <h4 id="current-condition"></h4>
+        <h4 id="current-temp">
+          <span id="current-temp-c"></span>&nbsp;|
+          <span id="current-temp-feelslike-c"></span>
+        </h4>
+      </div>
+    </section>
+    <aside>
+      <p id="error"></p>
+    </aside>
     <script src="app.js"></script>
 </body>
 </html>
