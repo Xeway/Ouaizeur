@@ -2,8 +2,12 @@ let button = document.querySelector('#button');
 let city = document.querySelector('#city-name');
 let error = document.querySelector('#error');
 let currentWeather = document.querySelector('#current-weather');
+let todayWeather = document.querySelector('#today-weather');
+let tomorrowWeather = document.querySelector('#tomorrow-weather');
+let afterTomorrowWeather = document.querySelector('#after-tomorrow-weather');
 let buttonsScaleForecast = document.querySelector('#buttons-scale-forecast');
 let forecastDivs = document.querySelectorAll('section .forecast');
+let startHour;
 
 button.addEventListener('mouseover', (e) => {
     if(e.target.textContent == "Zééé partiii") {
@@ -19,22 +23,6 @@ button.addEventListener('mouseout', (e) => {
 
 button.addEventListener('click', (e) => {
     let cityName = city.value.normalize('NFD').replace(/\s/g , "-").replace(/[\u0300-\u036f]/g, "").replace(/[0-9]/g, '').toLowerCase();
-
-    /*fetch(`https://api.weatherapi.com/v1/current.json?key=4ae32182d907474e93895631210706&lang=fr&q=${cityName}/`)
-        .then((res) => {
-            if(res.ok) {
-                return res.json();
-            } else {
-                throw new Error("Une erreur est survenue, n'hésite pas à contacter l'administrateur du site");
-            }
-        })
-        .then((value) => {
-            console.log(value);
-        })
-        .catch((err) => {
-            error.style.display = "block";
-            error.innerHTML = `Oups... Il y a eu un problème pour receuillir les données : ${err}<br/> N'hésite pas à contacter l'administrateur du site`;
-        });*/
     
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=4ae32182d907474e93895631210706&lang=fr&days=3&q=${cityName}/`)
         .then((res) => {
@@ -58,6 +46,24 @@ button.addEventListener('click', (e) => {
             currentWeather.children[1].innerHTML = value.current.condition.text;
             currentWeather.children[2].children[0].innerHTML = "Température : " + value.current.temp_c + "°C";
             currentWeather.children[2].children[1].innerHTML = "Ressenti : " + value.current.feelslike_c + "°C";
+
+            let month = new Date(value.current.last_updated);
+            month.setMonth(month.getMonth() + 1);
+
+            let fullDate = new Date(value.current.last_updated).getFullYear() + "-" + (((month.getMonth() < 10) ? '0' : '') + month.getMonth()) + "-" + (((new Date(value.current.last_updated).getDate() < 10) ? '0' : '') + new Date(value.current.last_updated).getDate()) + " " + (((new Date(value.current.last_updated).getHours() < 10) ? '0' : '') + new Date(value.current.last_updated).getHours())  + ":00";
+            console.log(fullDate);
+            
+            for(let j = 0 ; j < value.forecast.forecastday[0].hour.length ; j++) {
+                if(value.forecast.forecastday[0].hour[j].time == fullDate) {
+                    startHour = value.forecast.forecastday[0].hour[j];
+                }
+            }
+
+            startHour = new Date(startHour.time).getHours();
+            console.log(startHour);
+            
+
+            //todayWeather.children[0].innerHTML = 
 
         })
         .catch((err) => {
