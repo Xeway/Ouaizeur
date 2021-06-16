@@ -74,16 +74,6 @@ for(let i = 0 ; i < buttonsScaleForecast.children.length ; i++) {
             e.target.classList.add('active-button-scale-forecast');
         }
 
-        /*if(buttonsScaleForecast.children[i] == buttonsScaleForecast.children[0]) {
-            buttonsScaleForecast.children[1].classList.value
-        }*/
-        
-        /*if(buttonsScaleForecast.children[i-1] == undefined && buttonsScaleForecast.children[i+1].classList.contains("active-button-scale-forecast")) {
-            buttonsScaleForecast.children[i+1].classList.remove('active-button-scale-forecast');  
-        } else if(buttonsScaleForecast.children[i+1] == undefined && buttonsScaleForecast.children[i-1].classList.contains("active-button-scale-forecast")) {
-            buttonsScaleForecast.children[i-1].classList.remove('active-button-scale-forecast');
-        }*/
-
         if((buttonsScaleForecast.children[i+1] != undefined && buttonsScaleForecast.children[i+1].classList.contains('active-button-scale-forecast')) || (buttonsScaleForecast.children[i+2] != undefined && buttonsScaleForecast.children[i+2].classList.contains('active-button-scale-forecast'))) {
             if(buttonsScaleForecast.children[i+1] != undefined) {
                 buttonsScaleForecast.children[i+1].classList.remove('active-button-scale-forecast');
@@ -108,5 +98,3 @@ for(let i = 0 ; i < buttonsScaleForecast.children.length ; i++) {
         }
     });
 }
-
-console.log(buttonsScaleForecast.children[0].classList.contains('active-button-scale-forecast'));
