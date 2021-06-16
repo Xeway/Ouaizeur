@@ -150,6 +150,7 @@ section #buttons-scale-forecast > * {
   color: #edf5e1;
   width: 18vw;
   text-align: center;
+  text-decoration: none;
 }
 section #buttons-scale-forecast .active-button-scale-forecast {
   background-color: #edf5e1;
