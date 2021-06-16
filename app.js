@@ -3,6 +3,7 @@ let city = document.querySelector('#city-name');
 let error = document.querySelector('#error');
 let currentWeather = document.querySelector('#current-weather');
 let buttonsScaleForecast = document.querySelector('#buttons-scale-forecast');
+let forecastDivs = document.querySelectorAll('section .forecast');
 
 button.addEventListener('mouseover', (e) => {
     if(e.target.textContent == "Zééé partiii") {
@@ -75,9 +76,23 @@ for(let i = 0 ; i < buttonsScaleForecast.children.length ; i++) {
         document.querySelectorAll("#buttons-scale-forecast a").forEach((btn) => {
             btn.classList.remove("active-button-scale-forecast");
         });
+
+        forecastDivs.forEach((div) => {
+            div.style.display = "none";
+        });
         
-        if(e.target.className == "") {
+        if(!e.target.classList.contains("active-button-scale-forecast")) {
             e.target.classList.add('active-button-scale-forecast');
+        }
+
+        forecastDivs.forEach((div) => {
+            div.classList.remove('active');
+        });
+
+        if(e.target.classList.contains("active-button-scale-forecast")) {
+            let className = e.target.classList[0];
+            let article = document.querySelector(`div.${className}`);
+            article.style.display = "flex";
         }
     });
 }

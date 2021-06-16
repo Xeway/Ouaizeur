@@ -202,17 +202,17 @@ section {
         font-size: 1.8vw;
     }
 
-    img {
-        width: 12vw;
-        height: 12vw;
-    }
-
     #current-weather {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         font-size: 2vw;
+
+        img {
+            width: 12vw;
+            height: 12vw;
+        }
 
         #current-condition {
             font-weight: 500;
@@ -230,6 +230,10 @@ section {
                 margin-left: 1vw;
             }
         }
+    }
+
+    .forecast {
+        display: none;
     }
 }
 

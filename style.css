@@ -160,16 +160,16 @@ section #buttons-scale-forecast .active-button-scale-forecast {
 section #general-infos {
   font-size: 1.8vw;
 }
-section img {
-  width: 12vw;
-  height: 12vw;
-}
 section #current-weather {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 2vw;
+}
+section #current-weather img {
+  width: 12vw;
+  height: 12vw;
 }
 section #current-weather #current-condition {
   font-weight: 500;
@@ -183,6 +183,9 @@ section #current-weather #current-temp #current-temp-c {
 }
 section #current-weather #current-temp #current-temp-feelslike-c {
   margin-left: 1vw;
+}
+section .forecast {
+  display: none;
 }
 
 aside #error {
