@@ -51,7 +51,6 @@ button.addEventListener('click', (e) => {
             month.setMonth(month.getMonth() + 1);
 
             let fullDate = new Date(value.current.last_updated).getFullYear() + "-" + (((month.getMonth() < 10) ? '0' : '') + month.getMonth()) + "-" + (((new Date(value.current.last_updated).getDate() < 10) ? '0' : '') + new Date(value.current.last_updated).getDate()) + " " + (((new Date(value.current.last_updated).getHours() < 10) ? '0' : '') + new Date(value.current.last_updated).getHours())  + ":00";
-            console.log(fullDate);
             
             for(let j = 0 ; j < value.forecast.forecastday[0].hour.length ; j++) {
                 if(value.forecast.forecastday[0].hour[j].time == fullDate) {
@@ -60,10 +59,19 @@ button.addEventListener('click', (e) => {
             }
 
             startHour = new Date(startHour.time).getHours();
-            console.log(startHour);
             
 
-            //todayWeather.children[0].innerHTML = 
+            todayWeather.children[0].innerHTML = value.forecast.forecastday[0].day.condition.text;
+            
+            /*for(let k = 1 ; k < value.forecast.forecastday[0].hour.length ; k++) {
+                let l = k - 1;
+                console.log(l);
+                while(startHour + l < value.forecast.forecastday[0].hour.length) {
+                    while(todayWeather.children[k] != undefined) {
+                        todayWeather.children[k].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + l].time).getHours();
+                    }
+                }
+            }*/
 
         })
         .catch((err) => {
