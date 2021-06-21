@@ -63,15 +63,15 @@ button.addEventListener('click', (e) => {
 
             todayWeather.children[0].innerHTML = value.forecast.forecastday[0].day.condition.text;
             
-            /*for(let k = 1 ; k < value.forecast.forecastday[0].hour.length ; k++) {
+            for(let k = 1 ; k < value.forecast.forecastday[0].hour.length ; k++) {
                 let l = k - 1;
-                console.log(l);
+                //console.log(l);
                 while(startHour + l < value.forecast.forecastday[0].hour.length) {
                     while(todayWeather.children[k] != undefined) {
                         todayWeather.children[k].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + l].time).getHours();
                     }
                 }
-            }*/
+            }
 
         })
         .catch((err) => {
