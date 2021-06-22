@@ -8,6 +8,7 @@ let afterTomorrowWeather = document.querySelector('#after-tomorrow-weather');
 let buttonsScaleForecast = document.querySelector('#buttons-scale-forecast');
 let forecastDivs = document.querySelectorAll('section .forecast');
 let startHour;
+let l;
 
 button.addEventListener('mouseover', (e) => {
     if(e.target.textContent == "Zééé partiii") {
@@ -64,11 +65,11 @@ button.addEventListener('click', (e) => {
             todayWeather.children[0].innerHTML = value.forecast.forecastday[0].day.condition.text;
             
             for(let k = 0 ; k < value.forecast.forecastday[0].hour.length ; k++) {
-                let l = k + 1;
-                while(startHour + k < value.forecast.forecastday[0].hour.length) {
-                    while(todayWeather.children[l] != undefined) {
-                        todayWeather.children[l].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + k].time).getHours();
-                    }
+                l = k + 1;
+                if(startHour + k < value.forecast.forecastday[0].hour.length && todayWeather.children[l] != undefined) {
+                    todayWeather.children[l].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + k].time).getHours() + ":00";
+                    todayWeather.children[l].children[1].setAttribute("src", value.forecast.forecastday[0].hour[startHour + k].condition.icon);
+                    todayWeather.children[l].children[2].innerHTML = value.forecast.forecastday[0].hour[startHour + k].temp_c + "°C";
                 }
             }
 
