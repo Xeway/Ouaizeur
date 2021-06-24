@@ -71,6 +71,20 @@ button.addEventListener('click', (e) => {
                 }
             }
 
+            for(let n = 1 ; n < value.forecast.forecastday.length ; n++) {
+                for(let p = 0, q = 1 ; p < value.forecast.forecastday[n].hour.length ; p += 3, q++) {
+                    if(n == 1) {
+                        tomorrowWeather.children[q].children[0].innerHTML = new Date(value.forecast.forecastday[n].hour[p].time).getHours() + ":00";
+                        tomorrowWeather.children[q].children[1].setAttribute("src", value.forecast.forecastday[n].hour[p].condition.icon);
+                        tomorrowWeather.children[q].children[2].innerHTML = value.forecast.forecastday[n].hour[p].temp_c + "°C";
+                    } else if (n == 2) {
+                        afterTomorrowWeather.children[q].children[0].innerHTML = new Date(value.forecast.forecastday[n].hour[p].time).getHours() + ":00";
+                        afterTomorrowWeather.children[q].children[1].setAttribute("src", value.forecast.forecastday[n].hour[p].condition.icon);
+                        afterTomorrowWeather.children[q].children[2].innerHTML = value.forecast.forecastday[n].hour[p].temp_c + "°C";
+                    }
+                }
+            }
+
         })
         .catch((err) => {
             document.querySelector("#name-city").innerHTML = "";
