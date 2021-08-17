@@ -7,6 +7,7 @@ let tomorrowWeather = document.querySelector('#tomorrow-weather');
 let afterTomorrowWeather = document.querySelector('#after-tomorrow-weather');
 let buttonsScaleForecast = document.querySelector('#buttons-scale-forecast');
 let forecastDivs = document.querySelectorAll('section .forecast');
+let weatherBoxesToday = document.querySelector("#weather-boxes-today");
 let startHour;
 
 button.addEventListener('mouseover', (e) => {
@@ -60,19 +61,35 @@ button.addEventListener('click', (e) => {
 
             startHour = new Date(startHour.time).getHours();
             
-
             todayWeather.children[0].innerHTML = value.forecast.forecastday[0].day.condition.text;
-            
-            for(let k = 0, l = 1, m = 0 ; k < value.forecast.forecastday[0].hour.length ; k++, l++, m += 3) {
-                if(startHour + m < value.forecast.forecastday[0].hour.length && todayWeather.children[1].children[l] != undefined) {
-                    todayWeather.children[1].children[l].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + m].time).getHours() + ":00";
-                    todayWeather.children[1].children[l].children[1].setAttribute("src", value.forecast.forecastday[0].hour[startHour + m].condition.icon);
-                    todayWeather.children[1].children[l].children[2].innerHTML = value.forecast.forecastday[0].hour[startHour + m].temp_c + "°C";
+
+            let hoursArray = [];
+            for(let k = 0, m = 0 ; k < value.forecast.forecastday[0].hour.length ; k++, m += 3) {
+                if(startHour + m < value.forecast.forecastday[0].hour.length && todayWeather.children[1].children[k] != undefined) {
+                    todayWeather.children[1].children[k].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + m].time).getHours() + ":00";
+                    todayWeather.children[1].children[k].children[1].setAttribute("src", value.forecast.forecastday[0].hour[startHour + m].condition.icon);
+                    todayWeather.children[1].children[k].children[2].innerHTML = value.forecast.forecastday[0].hour[startHour + m].temp_c + "°C";
+                    hoursArray.push(startHour + m);
+                }
+            }
+
+            let lastHour = hoursArray[hoursArray.length - 1];
+
+            let startTomorrowHour = Math.abs(24 - (lastHour + 3));
+
+            for(let r = 0 ; r < weatherBoxesToday.children.length ; r++) {
+                if(weatherBoxesToday.children[r].children[0].textContent === "" && weatherBoxesToday.children[r].children[1].currentSrc === "" && weatherBoxesToday.children[r].children[2].textContent === "") {
+                    if(value.forecast.forecastday[1].hour[startTomorrowHour] != undefined) {
+                        todayWeather.children[1].children[r].children[0].innerHTML = new Date(value.forecast.forecastday[1].hour[startTomorrowHour].time).getHours() + ":00";
+                        todayWeather.children[1].children[r].children[1].setAttribute("src", value.forecast.forecastday[1].hour[startTomorrowHour].condition.icon);
+                        todayWeather.children[1].children[r].children[2].innerHTML = value.forecast.forecastday[1].hour[startTomorrowHour].temp_c + "°C";
+                        startTomorrowHour += 3;
+                    }
                 }
             }
 
             for(let n = 1 ; n < value.forecast.forecastday.length ; n++) {
-                for(let p = 0, q = 1 ; p < value.forecast.forecastday[n].hour.length ; p += 3, q++) {
+                for(let p = 0, q = 0 ; p < value.forecast.forecastday[n].hour.length ; p += 3, q++) {
                     if(n == 1) {
                         tomorrowWeather.children[1].children[q].children[0].innerHTML = new Date(value.forecast.forecastday[n].hour[p].time).getHours() + ":00";
                         tomorrowWeather.children[1].children[q].children[1].setAttribute("src", value.forecast.forecastday[n].hour[p].condition.icon);
