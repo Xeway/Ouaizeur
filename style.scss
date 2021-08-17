@@ -234,6 +234,13 @@ section {
 
     .forecast {
         display: none;
+        flex-direction: column;
+    }
+
+    .weather-boxes {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
     }
 }
 

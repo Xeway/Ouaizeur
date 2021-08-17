@@ -64,23 +64,23 @@ button.addEventListener('click', (e) => {
             todayWeather.children[0].innerHTML = value.forecast.forecastday[0].day.condition.text;
             
             for(let k = 0, l = 1, m = 0 ; k < value.forecast.forecastday[0].hour.length ; k++, l++, m += 3) {
-                if(startHour + m < value.forecast.forecastday[0].hour.length && todayWeather.children[l] != undefined) {
-                    todayWeather.children[l].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + m].time).getHours() + ":00";
-                    todayWeather.children[l].children[1].setAttribute("src", value.forecast.forecastday[0].hour[startHour + m].condition.icon);
-                    todayWeather.children[l].children[2].innerHTML = value.forecast.forecastday[0].hour[startHour + m].temp_c + "°C";
+                if(startHour + m < value.forecast.forecastday[0].hour.length && todayWeather.children[1].children[l] != undefined) {
+                    todayWeather.children[1].children[l].children[0].innerHTML = new Date(value.forecast.forecastday[0].hour[startHour + m].time).getHours() + ":00";
+                    todayWeather.children[1].children[l].children[1].setAttribute("src", value.forecast.forecastday[0].hour[startHour + m].condition.icon);
+                    todayWeather.children[1].children[l].children[2].innerHTML = value.forecast.forecastday[0].hour[startHour + m].temp_c + "°C";
                 }
             }
 
             for(let n = 1 ; n < value.forecast.forecastday.length ; n++) {
                 for(let p = 0, q = 1 ; p < value.forecast.forecastday[n].hour.length ; p += 3, q++) {
                     if(n == 1) {
-                        tomorrowWeather.children[q].children[0].innerHTML = new Date(value.forecast.forecastday[n].hour[p].time).getHours() + ":00";
-                        tomorrowWeather.children[q].children[1].setAttribute("src", value.forecast.forecastday[n].hour[p].condition.icon);
-                        tomorrowWeather.children[q].children[2].innerHTML = value.forecast.forecastday[n].hour[p].temp_c + "°C";
+                        tomorrowWeather.children[1].children[q].children[0].innerHTML = new Date(value.forecast.forecastday[n].hour[p].time).getHours() + ":00";
+                        tomorrowWeather.children[1].children[q].children[1].setAttribute("src", value.forecast.forecastday[n].hour[p].condition.icon);
+                        tomorrowWeather.children[1].children[q].children[2].innerHTML = value.forecast.forecastday[n].hour[p].temp_c + "°C";
                     } else if (n == 2) {
-                        afterTomorrowWeather.children[q].children[0].innerHTML = new Date(value.forecast.forecastday[n].hour[p].time).getHours() + ":00";
-                        afterTomorrowWeather.children[q].children[1].setAttribute("src", value.forecast.forecastday[n].hour[p].condition.icon);
-                        afterTomorrowWeather.children[q].children[2].innerHTML = value.forecast.forecastday[n].hour[p].temp_c + "°C";
+                        afterTomorrowWeather.children[1].children[q].children[0].innerHTML = new Date(value.forecast.forecastday[n].hour[p].time).getHours() + ":00";
+                        afterTomorrowWeather.children[1].children[q].children[1].setAttribute("src", value.forecast.forecastday[n].hour[p].condition.icon);
+                        afterTomorrowWeather.children[1].children[q].children[2].innerHTML = value.forecast.forecastday[n].hour[p].temp_c + "°C";
                     }
                 }
             }

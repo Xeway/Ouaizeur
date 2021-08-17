@@ -186,6 +186,12 @@ section #current-weather #current-temp #current-temp-feelslike-c {
 }
 section .forecast {
   display: none;
+  flex-direction: column;
+}
+section .weather-boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 aside #error {
