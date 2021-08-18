@@ -186,16 +186,58 @@ section #current-weather #current-temp #current-temp-feelslike-c {
 }
 section .forecast {
   display: none;
+  width: 90%;
+  height: 15vw;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 2vw;
+}
+section .condition {
+  font-size: 2vw;
+  font-weight: 500;
+  border-bottom: 0.2vmax groove #05386b;
+  display: block;
+  width: 100%;
+}
+section .forecast-weather-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1.8vw 0 1.8vw;
+}
+section .forecast-weather-box .hour {
+  font-size: 1.5vw;
+}
+section .forecast-weather-box .icon {
+  width: 5vw;
+  height: 5vw;
+}
+section .forecast-weather-box .temp-c {
+  font-size: 1.8vw;
+  font-weight: 400;
 }
 section .weather-boxes {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
+aside {
+  margin-bottom: 15vh;
+}
 aside #error {
   display: none;
+  margin: auto;
+  margin-top: 5vw;
+  font-weight: 600;
+  font-size: 1.5vw;
+  color: #6b0538;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

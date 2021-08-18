@@ -36,7 +36,6 @@ button.addEventListener('click', (e) => {
         })
         .then((value) => {
             document.querySelector('section').style.display = "block";
-            console.log(value);
             let date = new Date().getHours() + ":00";
             let lastUpdatedDate = (((new Date(value.current.last_updated).getHours() < 10) ? '0' : '') + new Date(value.current.last_updated).getHours())  + ":" + (((new Date(value.current.last_updated).getMinutes() < 10) ? '0' : '') + new Date(value.current.last_updated).getMinutes());
 
@@ -62,6 +61,8 @@ button.addEventListener('click', (e) => {
             startHour = new Date(startHour.time).getHours();
             
             todayWeather.children[0].innerHTML = value.forecast.forecastday[0].day.condition.text;
+            tomorrowWeather.children[0].innerHTML = value.forecast.forecastday[1].day.condition.text;
+            afterTomorrowWeather.children[0].innerHTML = value.forecast.forecastday[2].day.condition.text;
 
             let hoursArray = [];
             for(let k = 0, m = 0 ; k < value.forecast.forecastday[0].hour.length ; k++, m += 3) {
@@ -75,7 +76,7 @@ button.addEventListener('click', (e) => {
 
             let lastHour = hoursArray[hoursArray.length - 1];
 
-            let startTomorrowHour = Math.abs(24 - (lastHour + 3));
+            let startTomorrowHour = (lastHour + 3) - 24;
 
             for(let r = 0 ; r < weatherBoxesToday.children.length ; r++) {
                 if(weatherBoxesToday.children[r].children[0].textContent === "" && weatherBoxesToday.children[r].children[1].currentSrc === "" && weatherBoxesToday.children[r].children[2].textContent === "") {
