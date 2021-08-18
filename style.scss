@@ -26,6 +26,80 @@ body {
     }
 }
 
+#loader {
+    position: fixed;
+    z-index: 97;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $dark-green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #loader-emojis {
+        position: relative;
+        left: 6vw;
+        z-index: 99;
+        width: 12vw;
+        height: 12vw;
+        border-radius: 25%;
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center;
+        filter: blur(.1vw);
+        animation: changeEmojis 10s infinite linear, fadeInOut 1s linear -1s infinite;
+
+        @keyframes changeEmojis {
+            0% {
+                background-image: url("src/emojis/sun.png");
+            } 10% {
+                background-image: url("src/emojis/thermometer.png");
+            } 20% {
+                background-image: url("src/emojis/cloud.png");
+            } 30% {
+                background-image: url("src/emojis/cloud-with-rain.png");
+            } 40% {
+                background-image: url("src/emojis/thunder-cloud-and-rain.png");
+            } 50% {
+                background-image: url("src/emojis/wind.png");
+            } 60% {
+                background-image: url("src/emojis/cloud-with-snow.png");
+            } 70% {
+                background-image: url("src/emojis/rainbow.png");
+            } 80% {
+                background-image: url("src/emojis/cyclone.png");
+            } 90% {
+                background-image: url("src/emojis/full-moon.png");
+            } 100% {
+                background-image: url("src/emojis/sun.png");
+            }
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 1;
+            } 50% {
+                opacity: 0;
+            } 100% {
+                opacity: 1;
+            }
+        }
+    }
+
+    #neumorphism-box {
+        position: relative;
+        right: 6vw;
+        z-index: 98;
+        width: 12vw;
+        height: 12vw;
+        border-radius: 25%;
+        filter: blur(.2vw);
+        box-shadow: .4vw .4vw .8vw .1vw rgba($color: #000000, $alpha: .3), -0.4vw -0.4vw .8vw .1vw rgba($color: #ffffff, $alpha: .3);
+    }
+}
+
 header {
     width: 90%;
     height: 90%;
