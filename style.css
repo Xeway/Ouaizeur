@@ -213,6 +213,11 @@ section {
   color: #05386b;
   width: 90%;
   margin: auto;
+  /* Firefox */
+  /* IE10+ */
+  /* IE6,7 */
+  /* IE8 */
+  /* IE9,10 */
 }
 section #header-infos {
   display: flex;
@@ -242,11 +247,108 @@ section #buttons-scale-forecast .active-button-scale-forecast {
 section #general-infos {
   font-size: 1.8vw;
 }
-section #current-weather {
+@-moz-document url-prefix() {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media screen\9  {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media \0 screen {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media screen and (min-width: 0\0 ) {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+section #loader-api {
+  z-index: 98;
+  visibility: hidden;
+  width: 90%;
+  height: 20vw;
+  margin: auto;
+  position: relative;
+  top: 2vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(0.6vw);
+  -webkit-backdrop-filter: blur(0.6vw);
+}
+section #loader-api #loader-api-emojis {
+  z-index: 99;
+  width: 12vw;
+  height: 12vw;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  filter: blur(0.1vw);
+  animation: apiChangeEmojis 10s infinite linear, apiFadeInOut 1s linear -1s infinite;
+}
+@keyframes apiChangeEmojis {
+  0% {
+    background-image: url("src/emojis/sun.png");
+  }
+  10% {
+    background-image: url("src/emojis/thermometer.png");
+  }
+  20% {
+    background-image: url("src/emojis/cloud.png");
+  }
+  30% {
+    background-image: url("src/emojis/cloud-with-rain.png");
+  }
+  40% {
+    background-image: url("src/emojis/thunder-cloud-and-rain.png");
+  }
+  50% {
+    background-image: url("src/emojis/wind.png");
+  }
+  60% {
+    background-image: url("src/emojis/cloud-with-snow.png");
+  }
+  70% {
+    background-image: url("src/emojis/rainbow.png");
+  }
+  80% {
+    background-image: url("src/emojis/cyclone.png");
+  }
+  90% {
+    background-image: url("src/emojis/full-moon.png");
+  }
+  100% {
+    background-image: url("src/emojis/sun.png");
+  }
+}
+@keyframes apiFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+section #current-weather {
+  height: 20vw !important;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-bottom: 2vw;
   font-size: 2vw;
 }
 section #current-weather img {
@@ -267,6 +369,8 @@ section #current-weather #current-temp #current-temp-feelslike-c {
   margin-left: 1vw;
 }
 section .forecast {
+  position: relative !important;
+  bottom: 20vw !important;
   display: none;
   width: 90%;
   height: 15vw;

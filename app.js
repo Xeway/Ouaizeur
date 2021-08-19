@@ -9,6 +9,8 @@ let buttonsScaleForecast = document.querySelector('#buttons-scale-forecast');
 let forecastDivs = document.querySelectorAll('section .forecast');
 let weatherBoxesToday = document.querySelector("#weather-boxes-today");
 let startHour;
+let loaderApi = document.querySelector("#loader-api");
+let loaderApiEmojis = document.querySelector("#loader-api-emojis");
 
 button.addEventListener('mouseover', (e) => {
     if(e.target.textContent == "Zééé partiii") {
@@ -23,6 +25,9 @@ button.addEventListener('mouseout', (e) => {
 });
 
 button.addEventListener('click', (e) => {
+    e.preventDefault();
+    loaderApi.style.visibility = "visible";
+
     let cityName = city.value.normalize('NFD').replace(/\s/g , "-").replace(/[\u0300-\u036f]/g, "").replace(/[0-9]/g, '').toLowerCase();
     
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=4ae32182d907474e93895631210706&lang=fr&days=3&q=${cityName}/`)
@@ -41,6 +46,8 @@ button.addEventListener('click', (e) => {
 
             document.querySelector("#name-city").innerHTML = "Météo à " + value.location.name + ", " + value.location.region + ", " + value.location.country;
             document.querySelector('#current-hour').innerHTML = "Dernière actualisation : " + lastUpdatedDate;
+
+            loaderApi.style.visibility = "hidden";
 
             currentWeather.children[0].setAttribute("src", value.current.condition.icon);
             currentWeather.children[1].innerHTML = value.current.condition.text;
