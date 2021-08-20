@@ -1,0 +1,448 @@
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu:wght@300;400;500;700&display=swap");
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #5cdb95;
+  font-family: "Ubuntu", sans-serif;
+}
+
+#flags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  height: 5vw;
+  position: fixed;
+  top: 1vw;
+  right: 5vw;
+}
+#flags .flag {
+  width: 90%;
+  transition: 0.2s ease-in-out;
+}
+#flags .flag:hover {
+  width: 100%;
+  transition: 0.2s ease-in-out;
+}
+
+#loader {
+  position: fixed;
+  z-index: 97;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #379683;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loader #loader-emojis {
+  position: relative;
+  left: 6vw;
+  z-index: 99;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 25%;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  filter: blur(0.1vw);
+  animation: changeEmojis 10s infinite linear, fadeInOut 1s linear -1s infinite;
+}
+@keyframes changeEmojis {
+  0% {
+    background-image: url("../src/emojis/sun.png");
+  }
+  10% {
+    background-image: url("../src/emojis/thermometer.png");
+  }
+  20% {
+    background-image: url("../src/emojis/cloud.png");
+  }
+  30% {
+    background-image: url("../src/emojis/cloud-with-rain.png");
+  }
+  40% {
+    background-image: url("../src/emojis/thunder-cloud-and-rain.png");
+  }
+  50% {
+    background-image: url("../src/emojis/wind.png");
+  }
+  60% {
+    background-image: url("../src/emojis/cloud-with-snow.png");
+  }
+  70% {
+    background-image: url("../src/emojis/rainbow.png");
+  }
+  80% {
+    background-image: url("../src/emojis/cyclone.png");
+  }
+  90% {
+    background-image: url("../src/emojis/full-moon.png");
+  }
+  100% {
+    background-image: url("../src/emojis/sun.png");
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#loader #neumorphism-box {
+  position: relative;
+  right: 6vw;
+  z-index: 98;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 25%;
+  filter: blur(0.2vw);
+  box-shadow: 0.4vw 0.4vw 0.8vw 0.1vw rgba(0, 0, 0, 0.3), -0.4vw -0.4vw 0.8vw 0.1vw rgba(255, 255, 255, 0.3);
+}
+
+header {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #05386b;
+}
+header > * {
+  margin: 2.5vw 0 2.5vw 0;
+}
+header #title-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 20vw;
+  background: url("../src/background-picture.png") no-repeat;
+  background-size: 25vw;
+  background-position: center;
+}
+header #title {
+  font-family: "Fredoka One", cursive;
+  font-size: 6vw;
+  color: #edf5e1;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.35vw;
+  margin: auto;
+  text-align: center;
+  white-space: nowrap;
+}
+header #title #o:hover, header #title #u:hover, header #title #a:hover, header #title #i:hover, header #title #z:hover, header #title #e:hover, header #title #u2:hover, header #title #r:hover {
+  -webkit-text-fill-color: initial;
+  -webkit-text-stroke: 0px;
+}
+header hr {
+  border: 0.2vmax dashed #379683;
+  width: 80%;
+}
+header #slogan {
+  font-weight: 500;
+  font-size: 2vw;
+}
+header #city-name {
+  width: 60%;
+  height: 3vw;
+  font-size: 2.5vw;
+  text-align: center;
+  border: none;
+  border-radius: 2vw 1vw;
+  padding: 1em;
+  outline: none;
+  background-color: #8ee4af;
+  color: #05386b;
+}
+header #city-name:focus {
+  border: 0.3vmax dashed #05386b;
+  outline: none;
+}
+header #button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 3vw;
+  font-size: 2.5vw;
+  text-align: center;
+  border: none;
+  border-radius: 2vw;
+  padding: 1em;
+  outline: 0.35vw solid #edf5e1;
+  background-color: #05386b;
+  color: #5cdb95;
+}
+header #button:active {
+  background-color: #5cdb95;
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, darkViolet, magenta, red);
+}
+@media screen and (max-width: 1200px) {
+  header #title-illustration {
+    width: 70vw;
+    height: 30vw;
+    background-size: 35vw;
+  }
+  header #title {
+    font-size: 9.3333333333vw;
+  }
+  header #slogan {
+    font-size: 3vw;
+  }
+  header #city-name {
+    height: 3.5vw;
+    padding: 1.2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  header #title-illustration {
+    width: 80vw;
+    height: 35vw;
+    background-size: 40vw;
+  }
+  header #title {
+    font-size: 10.6666666667vw;
+  }
+  header #slogan {
+    font-size: 4vw;
+  }
+  header #city-name {
+    height: 4.5vw;
+    padding: 1.4em;
+  }
+}
+
+section {
+  display: none;
+  padding-top: 3vw;
+  color: #05386b;
+  width: 90%;
+  margin: auto;
+  /* Firefox */
+  /* IE10+ */
+  /* IE6,7 */
+  /* IE8 */
+  /* IE9,10 */
+}
+section #header-infos {
+  display: flex;
+  justify-content: space-between;
+}
+section #buttons-scale-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  font-weight: 500;
+  width: 18vw;
+}
+section #buttons-scale-forecast > * {
+  border-radius: 0.5vw;
+  color: #edf5e1;
+  width: 18vw;
+  text-align: center;
+  text-decoration: none;
+}
+section #buttons-scale-forecast .active-button-scale-forecast {
+  background-color: #edf5e1;
+  border: 0.2vw solid #379683;
+  color: #379683;
+}
+section #general-infos {
+  font-size: 1.8vw;
+}
+@-moz-document url-prefix() {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media screen\9  {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media \0 screen {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+@media screen and (min-width: 0\0 ) {
+  section #loader-api {
+    background-color: #5cdb95;
+  }
+}
+section #loader-api {
+  z-index: 98;
+  visibility: hidden;
+  width: 90%;
+  height: 20vw;
+  margin: auto;
+  position: relative;
+  top: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(0.6vw);
+  -webkit-backdrop-filter: blur(0.6vw);
+}
+section #loader-api #loader-api-emojis {
+  z-index: 99;
+  width: 12vw;
+  height: 12vw;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  filter: blur(0.1vw);
+  animation: apiChangeEmojis 10s infinite linear, apiFadeInOut 1s linear -1s infinite;
+}
+@keyframes apiChangeEmojis {
+  0% {
+    background-image: url("../src/emojis/sun.png");
+  }
+  10% {
+    background-image: url("../src/emojis/thermometer.png");
+  }
+  20% {
+    background-image: url("../src/emojis/cloud.png");
+  }
+  30% {
+    background-image: url("../src/emojis/cloud-with-rain.png");
+  }
+  40% {
+    background-image: url("../src/emojis/thunder-cloud-and-rain.png");
+  }
+  50% {
+    background-image: url("../src/emojis/wind.png");
+  }
+  60% {
+    background-image: url("../src/emojis/cloud-with-snow.png");
+  }
+  70% {
+    background-image: url("../src/emojis/rainbow.png");
+  }
+  80% {
+    background-image: url("../src/emojis/cyclone.png");
+  }
+  90% {
+    background-image: url("../src/emojis/full-moon.png");
+  }
+  100% {
+    background-image: url("../src/emojis/sun.png");
+  }
+}
+@keyframes apiFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+section #current-weather {
+  height: 20vw !important;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-bottom: 2vw;
+  font-size: 2vw;
+}
+section #current-weather img {
+  width: 12vw;
+  height: 12vw;
+}
+section #current-weather #current-condition {
+  font-weight: 500;
+  font-size: 2.5vw;
+}
+section #current-weather #current-temp {
+  margin-top: 2vw;
+}
+section #current-weather #current-temp #current-temp-c {
+  margin-right: 1vw;
+}
+section #current-weather #current-temp #current-temp-feelslike-c {
+  margin-left: 1vw;
+}
+section .forecast {
+  position: relative !important;
+  bottom: 20vw !important;
+  display: none;
+  width: 90%;
+  height: 15vw;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 2vw;
+}
+section .condition {
+  font-size: 2vw;
+  font-weight: 500;
+  border-bottom: 0.2vmax groove #05386b;
+  display: block;
+  width: 100%;
+}
+section .forecast-weather-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1.8vw 0 1.8vw;
+}
+section .forecast-weather-box .hour {
+  font-size: 1.5vw;
+}
+section .forecast-weather-box .icon {
+  width: 5vw;
+  height: 5vw;
+}
+section .forecast-weather-box .temp-c {
+  font-size: 1.8vw;
+  font-weight: 400;
+}
+section .weather-boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+aside {
+  margin-bottom: 15vh;
+}
+aside #error {
+  display: none;
+  margin: auto;
+  margin-top: 5vw;
+  font-weight: 600;
+  font-size: 1.5vw;
+  color: #6b0538;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

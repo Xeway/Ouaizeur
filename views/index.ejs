@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="src/favicon/favicon.ico">
+  <link rel="shortcut icon" href="src/favicon/android-chrome-192x192.png" sizes="192x192">
+  <link rel="shortcut icon" href="src/favicon/android-chrome-512x512.png" sizes="512x512">
+  <link rel="shortcut icon" href="src/favicon/android-chrome-192x192.png" sizes="192x192">
+  <link rel="shortcut icon" href="src/favicon/apple-touch-icon.png" sizes="180x180">
+  <link rel="shortcut icon" href="src/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="shortcut icon" href="src/favicon/favicon-32x32.png" sizes="32x32">
+  <title><%= title %></title>
+</head>
+<body>
+  <div id="loader">
+    <div id="loader-emojis"></div>
+    <div id="neumorphism-box"></div>
+  </div>
+  <header>
+    <div id="flags">
+      <a href='fr' id="france-flag"><img src="src/flags/france.png" class="flag"></img></a>
+      <a href="en" id="uk-flag"><img src="src/flags/united-kingdom.png" class="flag"></img></a>
+    </div>
+    <div id="title-illustration">
+      <h1 id="title">
+        <span id="o" class=letters>O</span>
+        <span id="u" class=letters>U</span>
+        <span id="a" class=letters>A</span>
+        <span id="i" class=letters>I</span>
+        <span id="z" class=letters>Z</span>
+        <span id="e" class=letters>E</span>
+        <span id="u2" class=letters>U</span>
+        <span id="r" class=letters>R</span>
+      </h1>
+    </div>
+    <hr/>
+    <h3 id="slogan"><%= slogan %></h3>
+    <input type="text" placeholder="<%= input %>" id="city-name"/>
+    <button id="button"><%= button %></button>
+  </header>
+  <section>
+    <div id="header-infos">
+      <div id="general-infos">
+        <h3 id="name-city"><%= weatherLocation %></h3>
+        <h5 id="current-hour"><%= weatherHour %></h5>
+      </div>
+      <div id="buttons-scale-forecast">
+        <a href="#" id="button-current" class="active-button-scale-forecast current-weather"><%= currently %></a>
+        <a href="#" id="button-today" class="today-weather"><%= today %></a>
+        <a href="#" id="button-tomorrow" class="tomorrow-weather"><%= tomorrow %></a>
+        <a href="#" id="button-after-tomorrow" class="after-tomorrow-weather"><%= dayAfterTomorrow %></a>
+      </div>
+    </div>
+    <h3 id="name-city"></h3>
+    <h5 id="current-hour"></h5>
+    <div id="loader-api">
+      <div id="loader-api-emojis"></div>
+    </div>
+    <div id="current-weather" class="active forecast current-weather">
+      <img src="" id="current-icon"/>
+      <h4 id="current-condition"></h4>
+      <h4 id="current-temp">
+        <span id="current-temp-c"></span>&nbsp;|
+        <span id="current-temp-feelslike-c"></span>
+      </h4>
+    </div>
+    <div id="today-weather" class="forecast today-weather">
+      <h4 class="condition"></h4>
+      <div class="weather-boxes" id="weather-boxes-today">
+        <div class="forecast-weather-box" id="today-h0">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h3">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h6">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h9">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h12">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h15">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h18">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h21">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-24">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+      </div>
+    </div>
+    <div id="tomorrow-weather" class="forecast tomorrow-weather">
+      <h4 class="condition"></h4>
+      <div class="weather-boxes">
+        <div class="forecast-weather-box" id="tomorrow-h0">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h3">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h6">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h9">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h12">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h15">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h18">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h21">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+      </div>
+    </div>
+    <div id="after-tomorrow-weather" class="forecast after-tomorrow-weather">
+      <h4 class="condition"></h4>
+      <div class="weather-boxes">
+        <div class="forecast-weather-box" id="after-tomorrow-h0">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h3">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h6">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h9">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h12">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h15">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h18">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h21">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <aside>
+    <p id="error"></p>
+  </aside>
+  <script src="js/loader.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/navbar.js"></script>
+</body>
+</html>
