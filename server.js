@@ -12,7 +12,7 @@ app.use('/css', express.static(__dirname + "public/css"));
 app.use('/js', express.static(__dirname + "public/js"));
 app.use('/src', express.static(__dirname + "public/src"));
 
-app.get("/", (request, response) => { // check cookies at the root page
+app.get("/", (request, response) => {
     if(request.cookies.language === "en") {
         response.redirect("/en");
     } else if(request.cookies.language === "fr") {
@@ -27,7 +27,6 @@ app.get("/:lang", (request, response) => {
     if(request.params.lang === "fr" || request.params.lang === "en") {
         response.cookie("language", request.params.lang, {maxAge: 365*24*3600*1000});
     }
-    console.log(request.cookies.language);
 
     if(request.params.lang === "fr") {
         response.render("index.ejs", {
@@ -56,7 +55,11 @@ app.get("/:lang", (request, response) => {
             dayAfterTomorrow: languages.english.buttons.dayAfterTomorrow
         });
     } else if(request.params.lang !== "fr" && request.params.lang !== "en") {
-        response.redirect("/en");
+        if(request.cookies.language !== undefined) {
+            response.redirect(`/${request.cookies.language}`);
+        } else {
+            response.redirect("/en");
+        }
     }
     
 });
