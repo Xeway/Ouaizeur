@@ -6,8 +6,6 @@ function getMargin() {
     let sizeMargin = parseFloat(window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").slice(0, window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").length - 2));
 
     let totalSize = sizeTitleIllustration.offsetHeight + sizeMargin;
-
-    console.log(totalSize);
     
     backgroundSize.style.height = totalSize + "px";
 }

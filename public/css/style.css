@@ -27,6 +27,19 @@ body {
   width: 100%;
   transition: 0.2s ease;
 }
+@media screen and (max-width: 1200px) {
+  #flags {
+    width: 15vw;
+    height: 7.5vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #flags {
+    width: 20vw;
+    height: 10vw;
+    top: 2vw;
+  }
+}
 
 #loader {
   position: fixed;
@@ -50,7 +63,7 @@ body {
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: center;
-  filter: blur(0.1vw);
+  filter: blur(0.05vw);
   animation: changeEmojis 10s infinite linear, fadeInOut 1s linear -1s infinite;
 }
 @keyframes changeEmojis {
@@ -120,6 +133,7 @@ header {
   justify-content: center;
   align-items: center;
   color: #05386b;
+  /* Firefox */
 }
 header > * {
   margin-top: 2.5vw;
@@ -131,28 +145,41 @@ header #title-illustration {
   align-items: center;
   width: 50vw;
   height: 20vw;
-  background: url("../src/background-picture.png") no-repeat;
-  background-size: 25vw;
-  background-position: center;
   margin-bottom: 0 !important;
+  position: relative;
+  z-index: 2;
 }
-header #title {
+header #title-illustration #title {
   font-family: "Fredoka One", cursive;
-  font-size: 6vw;
   color: #edf5e1;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.35vw;
   margin: auto;
   text-align: center;
   white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
-header #title #o:hover, header #title #u:hover, header #title #a:hover, header #title #i:hover, header #title #z:hover, header #title #e:hover, header #title #u2:hover, header #title #r:hover {
+header #title-illustration #title > * {
+  font-size: 6vw;
+  margin: 0 0.8vw 0 0.8vw;
+}
+header #title-illustration #title > *:hover {
   -webkit-text-fill-color: initial;
   -webkit-text-stroke: 0px;
 }
-header hr {
-  border: 0.2vmax dashed #379683;
-  width: 80%;
+header #title-illustration #visual {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 header #slogan {
   font-weight: 500;
@@ -174,6 +201,11 @@ header #city-name:focus {
   border: 0.3vmax dashed #05386b;
   outline: none;
 }
+@-moz-document url-prefix() {
+  header #button {
+    outline: 0.35vw solid #edf5e1;
+  }
+}
 header #button {
   display: flex;
   justify-content: center;
@@ -185,9 +217,9 @@ header #button {
   border: none;
   border-radius: 2vw;
   padding: 1em;
-  outline: 0.35vw solid #edf5e1;
+  outline: none;
   background-color: #05386b;
-  color: #5cdb95;
+  color: #8ee4af;
 }
 header #button:active {
   background-color: #5cdb95;
@@ -197,41 +229,47 @@ header #button:active {
   header #title-illustration {
     width: 70vw;
     height: 30vw;
-    background-size: 35vw;
   }
-  header #title {
-    font-size: 9.3333333333vw;
+  header #title > * {
+    font-size: 8vw !important;
   }
   header #slogan {
     font-size: 3vw;
   }
   header #city-name {
-    height: 3.5vw;
+    height: 5vw;
     padding: 1.2em;
+  }
+  header #button {
+    height: 4vw;
+    width: 45%;
   }
 }
 @media screen and (max-width: 600px) {
   header #title-illustration {
     width: 80vw;
     height: 35vw;
-    background-size: 40vw;
   }
-  header #title {
-    font-size: 10.6666666667vw;
+  header #title > * {
+    font-size: 9vw !important;
   }
   header #slogan {
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
   header #city-name {
-    height: 4.5vw;
+    height: 6vw;
     padding: 1.4em;
+  }
+  header #button {
+    height: 5.5vw;
+    width: 50%;
   }
 }
 
 .layered-waves {
   aspect-ratio: 960/150;
   width: 100vw;
-  background-image: url("../src/layered-waves.svg");
+  background-image: url("../src/svg/layered-waves.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -239,7 +277,7 @@ header #button:active {
 }
 
 .additional-background {
-  width: 100%;
+  width: 100vw;
   background-color: #5cdb95;
   position: absolute;
   top: 0;
@@ -282,36 +320,36 @@ section #buttons-scale-forecast > * {
   text-decoration: none;
 }
 section #buttons-scale-forecast .active-button-scale-forecast {
-  background-color: #edf5e1;
-  border: 0.2vw solid #379683;
-  color: #379683;
+  background-color: rgba(5, 56, 107, 0.25);
+  border: 0.2vw solid #05386b;
+  color: #8ee4af;
 }
 section #general-infos {
   font-size: 1.8vw;
 }
 @-moz-document url-prefix() {
   section #loader-api {
-    background-color: #5cdb95;
+    background-color: #379683;
   }
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   section #loader-api {
-    background-color: #5cdb95;
+    background-color: #379683;
   }
 }
 @media screen\9  {
   section #loader-api {
-    background-color: #5cdb95;
+    background-color: #379683;
   }
 }
 @media \0 screen {
   section #loader-api {
-    background-color: #5cdb95;
+    background-color: #379683;
   }
 }
 @media screen and (min-width: 0\0 ) {
   section #loader-api {
-    background-color: #5cdb95;
+    background-color: #379683;
   }
 }
 section #loader-api {
@@ -335,10 +373,10 @@ section #loader-api #loader-api-emojis {
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: center;
-  filter: blur(0.1vw);
-  animation: apiChangeEmojis 10s infinite linear, apiFadeInOut 1s linear -1s infinite;
+  filter: blur(0.05vw);
+  animation: changeEmojis 10s infinite linear, fadeInOut 1s linear -1s infinite;
 }
-@keyframes apiChangeEmojis {
+@keyframes changeEmojis {
   0% {
     background-image: url("../src/emojis/sun.png");
   }
@@ -373,7 +411,7 @@ section #loader-api #loader-api-emojis {
     background-image: url("../src/emojis/sun.png");
   }
 }
-@keyframes apiFadeInOut {
+@keyframes fadeInOut {
   0% {
     opacity: 1;
   }
@@ -390,7 +428,6 @@ section #current-weather {
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  padding-bottom: 2vw;
   font-size: 2vw;
 }
 section #current-weather img {
@@ -453,6 +490,71 @@ section .weather-boxes {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 2vw;
+}
+@media screen and (max-width: 1200px) {
+  section #buttons-scale-forecast {
+    font-size: 2vw;
+    width: 20vw;
+  }
+  section #general-infos {
+    font-size: 2.2vw;
+  }
+  section #current-weather {
+    font-size: 2.5vw;
+  }
+  section #current-weather img {
+    width: 14vw;
+    height: 14vw;
+  }
+  section #current-weather #current-condition {
+    font-size: 3vw;
+  }
+  section .condition {
+    font-size: 3vw;
+  }
+  section .forecast-weather-box .hour {
+    font-size: 2.2vw;
+  }
+  section .forecast-weather-box .icon {
+    width: 6vw;
+    height: 6vw;
+  }
+  section .forecast-weather-box .temp-c {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  section #buttons-scale-forecast {
+    font-size: 2.5vw;
+    width: 22vw;
+  }
+  section #general-infos {
+    font-size: 2.8vw;
+  }
+  section #current-weather {
+    font-size: 3vw;
+  }
+  section #current-weather img {
+    width: 16vw;
+    height: 16vw;
+  }
+  section #current-weather #current-condition {
+    font-size: 3.5vw;
+  }
+  section .condition {
+    font-size: 3.5vw;
+  }
+  section .forecast-weather-box .hour {
+    font-size: 2.5vw;
+  }
+  section .forecast-weather-box .icon {
+    width: 7vw;
+    height: 7vw;
+  }
+  section .forecast-weather-box .temp-c {
+    font-size: 2.2vw;
+  }
 }
 
 aside {
@@ -468,6 +570,16 @@ aside #error {
   font-size: 1.5vw;
   color: #6b0538;
   text-align: center;
+}
+@media screen and (max-width: 1200px) {
+  aside #error {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  aside #error {
+    font-size: 3vw;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -38,6 +38,9 @@ button.addEventListener('click', (e) => {
         })
         .then((value) => {
             document.querySelector('section').style.display = "block";
+            if(window.getComputedStyle(document.querySelector('section'), null).getPropertyValue("display") === "block") {
+                document.querySelector('aside').style.display = "none";
+            }
             let date = new Date().getHours() + ":00";
             let lastUpdatedDate = (((new Date(value.current.last_updated).getHours() < 10) ? '0' : '') + new Date(value.current.last_updated).getHours())  + ":" + (((new Date(value.current.last_updated).getMinutes() < 10) ? '0' : '') + new Date(value.current.last_updated).getMinutes());
 
