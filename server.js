@@ -25,7 +25,7 @@ app.get("/", (request, response) => {
 app.get("/:lang", (request, response) => {
 
     if(request.params.lang === "fr" || request.params.lang === "en") {
-        response.cookie("language", request.params.lang, {maxAge: 365*24*3600*1000});
+        response.cookie("language", request.params.lang, {maxAge: 365*24*3600*1000, sameSite: "strict"});
     }
 
     if(request.params.lang === "fr") {

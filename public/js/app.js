@@ -27,7 +27,7 @@ button.addEventListener('click', (e) => {
 
     let cityName = city.value.normalize('NFD').replace(/\s/g , "-").replace(/[\u0300-\u036f]/g, "").replace(/[0-9]/g, '').toLowerCase();
     
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=4ae32182d907474e93895631210706&lang=fr&days=3&q=${cityName}/`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=de55c2820a014a8a9eb91410212408&lang=fr&days=3&q=${cityName}/`)
         .then((res) => {
             if(res.ok) {
                 error.style.display = "none";
@@ -41,8 +41,8 @@ button.addEventListener('click', (e) => {
             let date = new Date().getHours() + ":00";
             let lastUpdatedDate = (((new Date(value.current.last_updated).getHours() < 10) ? '0' : '') + new Date(value.current.last_updated).getHours())  + ":" + (((new Date(value.current.last_updated).getMinutes() < 10) ? '0' : '') + new Date(value.current.last_updated).getMinutes());
 
-            document.querySelector("#name-city").innerHTML += value.location.name + ", " + value.location.region + ", " + value.location.country;
-            document.querySelector('#current-hour').innerHTML += lastUpdatedDate;
+            document.querySelector("#name-city-span").innerHTML = value.location.name + ", " + value.location.region + ", " + value.location.country;
+            document.querySelector('#current-hour-span').innerHTML = lastUpdatedDate;
 
             loaderApi.style.visibility = "hidden";
 
@@ -109,7 +109,7 @@ button.addEventListener('click', (e) => {
 
         })
         .catch((err) => {
-            document.querySelector("#name-city").innerHTML = "";
+            document.querySelector('section').style.display = "none";
             error.style.display = "block";
             error.innerHTML = `Oups... Il y a eu un problème pour receuillir les données : ${err}`;
         })

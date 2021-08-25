@@ -38,11 +38,11 @@ body {
 
     .flag {
         width: 90%;
-        transition: .2s ease-in-out;
+        transition: .2s ease;
 
         &:hover {
             width: 100%;
-            transition: .2s ease-in-out;
+            transition: .2s ease;
         }
     }
 }
@@ -133,7 +133,8 @@ header {
     color: $dark-blue;
 
     & > * {
-        margin: 2.5vw 0 2.5vw 0;
+        margin-top: 2.5vw;
+        margin-bottom: 2.5vw;
     }
 
     #title-illustration {
@@ -145,6 +146,7 @@ header {
         background: url("../src/background-picture.png") no-repeat;
         background-size: 25vw;
         background-position: center;
+        margin-bottom: 0 !important;
     }
 
     #title {
@@ -257,12 +259,40 @@ header {
     }
 }
 
+.layered-waves {
+    aspect-ratio: 960/150;
+    width: 100vw;
+    background-image: url("../src/layered-waves.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 0 0 0 !important;
+}
+
+.additional-background {
+    width: 100%;
+    background-color: $dark-green;
+    position: absolute;
+    top: 38vw;
+    z-index: -1;
+
+    @media screen and (max-width: 1200px) {
+        top: 48vw;
+    }
+
+    @media screen and (max-width: 600px) {
+        top: 53vw;
+    }
+}
+
 section {
     display: none;
     padding-top: 3vw;
     color: $dark-blue;
     width: 90%;
+    height: 35vw;
     margin: auto;
+    background-color: $dark-green;
 
     #header-infos {
         display: flex;
@@ -481,11 +511,13 @@ section {
 aside {
 
     margin-bottom: 15vh;
+    margin-top: 5vw;
+    width: 100%;
+    height: 5vw;
 
     #error {
         display: none;
         margin: auto;
-        margin-top: 5vw;
         font-weight: 600;
         font-size: 1.5vw;
         color: #6b0538;

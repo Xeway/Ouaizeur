@@ -21,11 +21,11 @@ body {
 }
 #flags .flag {
   width: 90%;
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease;
 }
 #flags .flag:hover {
   width: 100%;
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease;
 }
 
 #loader {
@@ -122,7 +122,8 @@ header {
   color: #05386b;
 }
 header > * {
-  margin: 2.5vw 0 2.5vw 0;
+  margin-top: 2.5vw;
+  margin-bottom: 2.5vw;
 }
 header #title-illustration {
   display: flex;
@@ -133,6 +134,7 @@ header #title-illustration {
   background: url("../src/background-picture.png") no-repeat;
   background-size: 25vw;
   background-position: center;
+  margin-bottom: 0 !important;
 }
 header #title {
   font-family: "Fredoka One", cursive;
@@ -226,12 +228,42 @@ header #button:active {
   }
 }
 
+.layered-waves {
+  aspect-ratio: 960/150;
+  width: 100vw;
+  background-image: url("../src/layered-waves.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 0 0 0 !important;
+}
+
+.additional-background {
+  width: 100%;
+  background-color: #379683;
+  position: absolute;
+  top: 38vw;
+  z-index: -1;
+}
+@media screen and (max-width: 1200px) {
+  .additional-background {
+    top: 48vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .additional-background {
+    top: 53vw;
+  }
+}
+
 section {
   display: none;
   padding-top: 3vw;
   color: #05386b;
   width: 90%;
+  height: 35vw;
   margin: auto;
+  background-color: #379683;
   /* Firefox */
   /* IE10+ */
   /* IE6,7 */
@@ -434,11 +466,13 @@ section .weather-boxes {
 
 aside {
   margin-bottom: 15vh;
+  margin-top: 5vw;
+  width: 100%;
+  height: 5vw;
 }
 aside #error {
   display: none;
   margin: auto;
-  margin-top: 5vw;
   font-weight: 600;
   font-size: 1.5vw;
   color: #6b0538;
