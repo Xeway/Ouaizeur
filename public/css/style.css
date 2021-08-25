@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background-color: #5cdb95;
+  background-color: #379683;
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -240,20 +240,11 @@ header #button:active {
 
 .additional-background {
   width: 100%;
-  background-color: #379683;
+  background-color: #5cdb95;
   position: absolute;
-  top: 38vw;
+  top: 0;
   z-index: -1;
-}
-@media screen and (max-width: 1200px) {
-  .additional-background {
-    top: 48vw;
-  }
-}
-@media screen and (max-width: 600px) {
-  .additional-background {
-    top: 53vw;
-  }
+  margin: 0 0 0 0 !important;
 }
 
 section {

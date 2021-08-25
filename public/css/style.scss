@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    background-color: $green;
+    background-color: $dark-green;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -271,18 +271,11 @@ header {
 
 .additional-background {
     width: 100%;
-    background-color: $dark-green;
+    background-color: $green;
     position: absolute;
-    top: 38vw;
+    top: 0;
     z-index: -1;
-
-    @media screen and (max-width: 1200px) {
-        top: 48vw;
-    }
-
-    @media screen and (max-width: 600px) {
-        top: 53vw;
-    }
+    margin: 0 0 0 0 !important;
 }
 
 section {

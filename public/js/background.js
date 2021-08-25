@@ -1,5 +1,29 @@
 let backgroundSize = document.querySelector('.additional-background');
 
+let sizeTitleIllustration = document.querySelector('#title-illustration');
+
+function getMargin() {
+    let sizeMargin = parseFloat(window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").slice(0, window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").length - 2));
+
+    let totalSize = sizeTitleIllustration.offsetHeight + sizeMargin;
+
+    console.log(totalSize);
+    
+    backgroundSize.style.height = totalSize + "px";
+}
+
+getMargin();
+
+window.addEventListener('resize', getMargin);
+
+
+
+
+
+// THAT CODE SNIPPET IS A MESS, BUT ANYWAY I WANT TO KEEP IT, SO JUST DON'T PAY ATTENTION TO IT
+
+/* let backgroundSize = document.querySelector('.additional-background');
+
 let sizeSlogan = document.querySelector('#slogan');
 let sizeInput = document.querySelector("#city-name");
 let sizeButton = document.querySelector('#button');
@@ -53,4 +77,4 @@ observer.observe(sizeSection, {
 observer.observe(sizeError, {
     subtree: true,
     attributes: true
-});
+}); */
