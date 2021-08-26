@@ -198,7 +198,7 @@ header #city-name {
   color: #05386b;
 }
 header #city-name:focus {
-  border: 0.3vmax dashed #05386b;
+  border: 0.3vmax solid rgba(5, 56, 107, 0.75);
   outline: none;
 }
 header #button {
@@ -577,24 +577,32 @@ section .weather-boxes {
 }
 
 aside {
-  margin-bottom: 15vh;
-  margin-top: 5vw;
+  margin-top: 3vw;
   width: 100%;
-  height: 5vw;
+  height: 16vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 aside #error {
   margin: auto;
   font-weight: 600;
-  font-size: 1.5vw;
+  font-size: 2vw;
   color: #05386b;
   text-align: center;
 }
 @media screen and (max-width: 1200px) {
+  aside {
+    height: 18vw;
+  }
   aside #error {
     font-size: 2.5vw;
   }
 }
 @media screen and (max-width: 600px) {
+  aside {
+    height: 20vw;
+  }
   aside #error {
     font-size: 3vw;
   }
@@ -604,22 +612,45 @@ footer {
   width: 100%;
   height: 10vw;
   flex-shrink: 0;
-  border: 2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 0 0;
+  margin-top: 10vw;
 }
 footer a {
-  width: 50px;
+  width: 3vw;
+  height: 3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-footer #github {
-  width: 50px;
+footer a #github {
+  width: 3vw;
+  height: 3vw;
+}
+@media screen and (max-width: 1200px) {
+  footer a {
+    width: 4vw;
+    height: 4vw;
+  }
+  footer a #github {
+    width: 4vw;
+    height: 4vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  footer a {
+    width: 5vw;
+    height: 5vw;
+  }
+  footer a #github {
+    width: 5vw;
+    height: 5vw;
+  }
 }
 
 body > header, section, aside {
-  flex-grow: 1;
-  flex-shrink: 0;
+  flex: 1 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

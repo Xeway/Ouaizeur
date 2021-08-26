@@ -106,7 +106,8 @@ button.addEventListener('click', (e) => {
         })
         .catch((err) => {
             document.querySelector('section').style.display = "none";
-            error.style.display = "block";
+            loaderApi.style.visibility = "hidden";
+            error.style.display = "flex";
             if(language === "fr") {
                 error.children[0].innerHTML = `Oups... Il y a eu un problème pour receuillir les données...<br>-<br>Es-tu sûr d'avoir bien écris le nom de la ville ? Sinon, n'hésite pas à contacter l'admin du site`;
             } else {

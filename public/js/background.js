@@ -7,7 +7,7 @@ function getMargin() {
 
     let totalSize = sizeTitleIllustration.offsetHeight + sizeMargin;
     
-    backgroundSize.style.height = totalSize + "px";
+    backgroundSize.style.height = (totalSize + 2) + "px";
 }
 
 getMargin();
