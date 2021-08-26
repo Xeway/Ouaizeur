@@ -18,6 +18,7 @@ body {
   position: fixed;
   top: 1vw;
   right: 5vw;
+  z-index: 3;
 }
 #flags .flag {
   width: 90%;
@@ -133,7 +134,6 @@ header {
   justify-content: center;
   align-items: center;
   color: #05386b;
-  /* Firefox */
 }
 header > * {
   margin-top: 2.5vw;
@@ -201,11 +201,6 @@ header #city-name:focus {
   border: 0.3vmax dashed #05386b;
   outline: none;
 }
-@-moz-document url-prefix() {
-  header #button {
-    outline: 0.35vw solid #edf5e1;
-  }
-}
 header #button {
   display: flex;
   justify-content: center;
@@ -217,12 +212,15 @@ header #button {
   border: none;
   border-radius: 2vw;
   padding: 1em;
-  outline: none;
+  border: 0.35vw solid #edf5e1;
   background-color: #05386b;
   color: #8ee4af;
+  overflow: hidden;
+  white-space: nowrap;
 }
 header #button:active {
-  background-color: #5cdb95;
+  color: #edf5e1;
+  background-color: #05386b;
   background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, darkViolet, magenta, red);
 }
 @media screen and (max-width: 1200px) {
@@ -243,6 +241,7 @@ header #button:active {
   header #button {
     height: 4vw;
     width: 45%;
+    border: 0.4vw solid #edf5e1;
   }
 }
 @media screen and (max-width: 600px) {
@@ -263,6 +262,7 @@ header #button:active {
   header #button {
     height: 5.5vw;
     width: 50%;
+    border: 0.45vw solid #edf5e1;
   }
 }
 
@@ -287,6 +287,7 @@ header #button:active {
 
 section {
   display: none;
+  position: relative;
   padding-top: 3vw;
   color: #05386b;
   width: 90%;
@@ -353,13 +354,13 @@ section #general-infos {
   }
 }
 section #loader-api {
-  z-index: 98;
+  z-index: 95;
   visibility: hidden;
-  width: 90%;
-  height: 20vw;
+  width: 100%;
+  height: 22vw;
   margin: auto;
-  position: relative;
-  top: 2vw;
+  position: absolute;
+  top: 12vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -367,7 +368,7 @@ section #loader-api {
   -webkit-backdrop-filter: blur(0.6vw);
 }
 section #loader-api #loader-api-emojis {
-  z-index: 99;
+  z-index: 96;
   width: 12vw;
   height: 12vw;
   background-repeat: no-repeat;
@@ -448,13 +449,11 @@ section #current-weather #current-temp #current-temp-feelslike-c {
   margin-left: 1vw;
 }
 section .forecast {
-  position: relative !important;
-  bottom: 20vw !important;
   display: none;
   width: 90%;
   height: 15vw;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: auto;
   margin-top: 2vw;
@@ -493,6 +492,9 @@ section .weather-boxes {
   margin-top: 2vw;
 }
 @media screen and (max-width: 1200px) {
+  section {
+    height: 40vw;
+  }
   section #buttons-scale-forecast {
     font-size: 2vw;
     width: 20vw;
@@ -500,8 +502,13 @@ section .weather-boxes {
   section #general-infos {
     font-size: 2.2vw;
   }
+  section #loader-api {
+    top: 15vw;
+    height: 25vw;
+  }
   section #current-weather {
     font-size: 2.5vw;
+    height: 25vw !important;
   }
   section #current-weather img {
     width: 14vw;
@@ -509,6 +516,10 @@ section .weather-boxes {
   }
   section #current-weather #current-condition {
     font-size: 3vw;
+  }
+  section .forecast {
+    height: 20vw;
+    bottom: 25vw;
   }
   section .condition {
     font-size: 3vw;
@@ -525,6 +536,9 @@ section .weather-boxes {
   }
 }
 @media screen and (max-width: 600px) {
+  section {
+    height: 45vw;
+  }
   section #buttons-scale-forecast {
     font-size: 2.5vw;
     width: 22vw;
@@ -532,8 +546,13 @@ section .weather-boxes {
   section #general-infos {
     font-size: 2.8vw;
   }
+  section #loader-api {
+    top: 18vw;
+    height: 28vw;
+  }
   section #current-weather {
     font-size: 3vw;
+    height: 28vw !important;
   }
   section #current-weather img {
     width: 16vw;
@@ -564,11 +583,10 @@ aside {
   height: 5vw;
 }
 aside #error {
-  display: none;
   margin: auto;
   font-weight: 600;
   font-size: 1.5vw;
-  color: #6b0538;
+  color: #05386b;
   text-align: center;
 }
 @media screen and (max-width: 1200px) {
@@ -580,6 +598,28 @@ aside #error {
   aside #error {
     font-size: 3vw;
   }
+}
+
+footer {
+  width: 100%;
+  height: 10vw;
+  flex-shrink: 0;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 0;
+}
+footer a {
+  width: 50px;
+}
+footer #github {
+  width: 50px;
+}
+
+body > header, section, aside {
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -75,6 +75,7 @@ body {
     position: fixed;
     top: 1vw;
     right: 5vw;
+    z-index: 3;
 
     .flag {
         width: 90%;
@@ -221,13 +222,6 @@ header {
         }
     }
 
-    /* Firefox */
-    @-moz-document url-prefix() {
-        #button {
-            outline: .35vw solid $bright-beige;
-        }
-    }
-
     #button {
         display: flex;
         justify-content: center;
@@ -239,12 +233,15 @@ header {
         border: none;
         border-radius: 2vw;
         padding: 1em;
-        outline: none;
+        border: .35vw solid $bright-beige;
         background-color: $dark-blue;
         color: $bright-green;
+        overflow: hidden;
+        white-space: nowrap;
 
         &:active {
-            background-color: $green;
+            color: $bright-beige;
+            background-color: $dark-blue;
             background: $rainbow;
         }
     }
@@ -273,6 +270,7 @@ header {
         #button {
             height: 4vw;
             width: 45%;
+            border: .4vw solid $bright-beige;
         }
     }
 
@@ -300,6 +298,7 @@ header {
         #button {
             height: 5.5vw;
             width: 50%;
+            border: .45vw solid $bright-beige;
         }
     }
 }
@@ -325,6 +324,7 @@ header {
 
 section {
     display: none;
+    position: relative;
     padding-top: 3vw;
     color: $dark-blue;
     width: 90%;
@@ -401,13 +401,13 @@ section {
     }
 
     #loader-api {
-        z-index: 98;
+        z-index: 95;
         visibility: hidden;
-        width: 90%;
-        height: 20vw;
+        width: 100%;
+        height: 22vw;
         margin: auto;
-        position: relative;
-        top: 2vw;
+        position: absolute;
+        top: 12vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -415,7 +415,7 @@ section {
         -webkit-backdrop-filter: blur(.6vw);
 
         #loader-api-emojis {
-            z-index: 99;
+            z-index: 96;
             width: 12vw;
             height: 12vw;
             background-repeat: no-repeat;
@@ -458,13 +458,11 @@ section {
     }
 
     .forecast {
-        position: relative !important;
-        bottom: 20vw !important;
         display: none;
         width: 90%;
         height: 15vw;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         margin: auto;
         margin-top: 2vw;
@@ -510,6 +508,8 @@ section {
     }
 
     @media screen and (max-width: 1200px) {
+        height: 40vw;
+        
         #buttons-scale-forecast {
             font-size: 2vw;
             width: 20vw;
@@ -519,8 +519,14 @@ section {
             font-size: 2.2vw;
         }
 
+        #loader-api {
+            top: 15vw;
+            height: 25vw;
+        }
+
         #current-weather {
             font-size: 2.5vw;
+            height: 25vw !important;
 
             img {
                 width: 14vw;
@@ -530,6 +536,11 @@ section {
             #current-condition {
                 font-size: 3vw;
             }
+        }
+
+        .forecast {
+            height: 20vw;
+            bottom: 25vw;
         }
 
         .condition {
@@ -553,6 +564,8 @@ section {
     }
 
     @media screen and (max-width: 600px) {
+        height: 45vw;
+        
         #buttons-scale-forecast {
             font-size: 2.5vw;
             width: 22vw;
@@ -562,8 +575,14 @@ section {
             font-size: 2.8vw;
         }
 
+        #loader-api {
+            top: 18vw;
+            height: 28vw;
+        }
+
         #current-weather {
             font-size: 3vw;
+            height: 28vw !important;
 
             img {
                 width: 16vw;
@@ -603,11 +622,10 @@ aside {
     height: 5vw;
 
     #error {
-        display: none;
         margin: auto;
         font-weight: 600;
         font-size: 1.5vw;
-        color: #6b0538;
+        color: $dark-blue;
         text-align: center;
     }
 
@@ -622,4 +640,28 @@ aside {
             font-size: 3vw;
         }
     }
+}
+
+footer {
+    width: 100%;
+    height: 10vw;
+    flex-shrink: 0;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+
+    a {
+        width: 50px;
+    }
+
+    #github {
+        width: 50px;
+    }
+}
+
+body > header, section, aside {
+    flex-grow: 1;
+    flex-shrink: 0;
 }

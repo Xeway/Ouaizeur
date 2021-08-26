@@ -1,6 +1,6 @@
 let button = document.querySelector('#button');
 let city = document.querySelector('#city-name');
-let error = document.querySelector('#error');
+let error = document.querySelector('aside');
 let currentWeather = document.querySelector('#current-weather');
 let todayWeather = document.querySelector('#today-weather');
 let tomorrowWeather = document.querySelector('#tomorrow-weather');
@@ -8,17 +8,15 @@ let afterTomorrowWeather = document.querySelector('#after-tomorrow-weather');
 let weatherBoxesToday = document.querySelector("#weather-boxes-today");
 let startHour;
 let loaderApi = document.querySelector("#loader-api");
+let valueButton;
 
 button.addEventListener('mouseover', (e) => {
-    if(e.target.textContent == "Zééé partiii") {
-        e.target.textContent = "👀☀️☁️🌪️❄️💨🌧️🌈👀";
-    };
+    valueButton = e.target.textContent;
+    e.target.textContent = "👀☀️☁️🌪️❄️💨🌧️🌈👀";
 });
 
 button.addEventListener('mouseout', (e) => {
-    if(e.target.textContent == "👀☀️☁️🌪️❄️💨🌧️🌈👀") {
-        e.target.textContent = "Zééé partiii";
-    }
+    e.target.textContent = valueButton;
 });
 
 button.addEventListener('click', (e) => {
@@ -27,20 +25,15 @@ button.addEventListener('click', (e) => {
 
     let cityName = city.value.normalize('NFD').replace(/\s/g , "-").replace(/[\u0300-\u036f]/g, "").replace(/[0-9]/g, '').toLowerCase();
     
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=de55c2820a014a8a9eb91410212408&lang=fr&days=3&q=${cityName}/`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=de55c2820a014a8a9eb91410212408&lang=${language}&days=3&q=${cityName}/`)
         .then((res) => {
             if(res.ok) {
                 error.style.display = "none";
                 return res.json();
-            } else {
-                throw new Error("Une erreur est survenue, n'hésite pas à contacter l'administrateur du site");
             }
         })
         .then((value) => {
             document.querySelector('section').style.display = "block";
-            if(window.getComputedStyle(document.querySelector('section'), null).getPropertyValue("display") === "block") {
-                document.querySelector('aside').style.display = "none";
-            }
             let date = new Date().getHours() + ":00";
             let lastUpdatedDate = (((new Date(value.current.last_updated).getHours() < 10) ? '0' : '') + new Date(value.current.last_updated).getHours())  + ":" + (((new Date(value.current.last_updated).getMinutes() < 10) ? '0' : '') + new Date(value.current.last_updated).getMinutes());
 
@@ -114,6 +107,10 @@ button.addEventListener('click', (e) => {
         .catch((err) => {
             document.querySelector('section').style.display = "none";
             error.style.display = "block";
-            error.innerHTML = `Oups... Il y a eu un problème pour receuillir les données : ${err}`;
-        })
+            if(language === "fr") {
+                error.children[0].innerHTML = `Oups... Il y a eu un problème pour receuillir les données...<br>-<br>Es-tu sûr d'avoir bien écris le nom de la ville ? Sinon, n'hésite pas à contacter l'admin du site`;
+            } else {
+                error.children[0].innerHTML = `Oops... Something went wrong to fetch the data...<br>-<br>Are you sure to have correctly written the name of the city? Otherwise, feel free to contact the website administrator`;
+            }
+        });
 });

@@ -30,6 +30,7 @@ app.get("/:lang", (request, response) => {
 
     if(request.params.lang === "fr") {
         response.render("index.ejs", {
+            language: languages.french.language,
             title: languages.french.title,
             slogan: languages.french.slogan,
             input: languages.french.input,
@@ -39,10 +40,12 @@ app.get("/:lang", (request, response) => {
             currently: languages.french.buttons.currently,
             today: languages.french.buttons.today,
             tomorrow: languages.french.buttons.tomorrow,
-            dayAfterTomorrow: languages.french.buttons.dayAfterTomorrow
+            dayAfterTomorrow: languages.french.buttons.dayAfterTomorrow,
+            titleFooter: languages.french.titleFooter
         });
     } else if(request.params.lang === "en") {
         response.render("index.ejs", {
+            language: languages.english.language,
             title: languages.english.title,
             slogan: languages.english.slogan,
             input: languages.english.input,
@@ -52,7 +55,8 @@ app.get("/:lang", (request, response) => {
             currently: languages.english.buttons.currently,
             today: languages.english.buttons.today,
             tomorrow: languages.english.buttons.tomorrow,
-            dayAfterTomorrow: languages.english.buttons.dayAfterTomorrow
+            dayAfterTomorrow: languages.english.buttons.dayAfterTomorrow,
+            titleFooter: languages.english.titleFooter
         });
     } else if(request.params.lang !== "fr" && request.params.lang !== "en") {
         if(request.cookies.language !== undefined) {
