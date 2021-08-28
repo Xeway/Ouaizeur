@@ -132,6 +132,8 @@ button.addEventListener('click', (e) => {
             fillElements(value, false);
         })
         .catch((err) => {
+            document.cookie = "city=; max-age=0";
+            localStorage.clear();
             document.querySelector('section').style.display = "none";
             loaderApi.style.visibility = "hidden";
             error.style.display = "flex";
@@ -145,6 +147,8 @@ button.addEventListener('click', (e) => {
 
 if(listCookies()[1] !== undefined) {
     city.value = getCookieValue(listCookies()[1]);
+} else {
+    city.value = "";
 }
 
 if(localStorage.getItem("weather") !== null) {
