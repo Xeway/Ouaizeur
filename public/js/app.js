@@ -39,11 +39,9 @@ function fillElements(data, isStringified) {
     }
     
     let date = new Date(data.current.last_updated);
-    let month = date;
-    month.setMonth(month.getMonth() + 1);
 
-    let lastUpdatedDateFr = (((date.getDate() < 10) ? '0' : '') + date.getDate()) + "/" + (((month.getMonth() < 10) ? '0' : '') + month.getMonth()) + "/" + date.getFullYear() + " à " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":" + (((date.getMinutes() < 10) ? '0' : '') + date.getMinutes());
-    let lastUpdatedDateEn = date.getFullYear() + "-" + (((month.getMonth() < 10) ? '0' : '') + month.getMonth()) + "-" + (((date.getDate() < 10) ? '0' : '') + date.getDate()) + " at " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":00";
+    let lastUpdatedDateFr = (((date.getDate() < 10) ? '0' : '') + date.getDate()) + "/" + ((((date.getMonth() + 1) < 10) ? '0' : '') + (date.getMonth() + 1)) + "/" + date.getFullYear() + " à " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":" + (((date.getMinutes() < 10) ? '0' : '') + date.getMinutes());
+    let lastUpdatedDateEn = date.getFullYear() + "-" + ((((date.getMonth() + 1) < 10) ? '0' : '') + (date.getMonth() + 1)) + "-" + (((date.getDate() < 10) ? '0' : '') + date.getDate()) + " at " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":00";
 
     document.querySelector("#name-city-span").innerHTML = data.location.name + ", " + data.location.region + ", " + data.location.country;
     if(language === "fr") {
@@ -59,7 +57,7 @@ function fillElements(data, isStringified) {
     currentWeather.children[2].children[0].innerHTML = "Température : " + data.current.temp_c + "°C";
     currentWeather.children[2].children[1].innerHTML = "Ressenti : " + data.current.feelslike_c + "°C";
 
-    let fullDate = date.getFullYear() + "-" + (((month.getMonth() < 10) ? '0' : '') + month.getMonth()) + "-" + (((date.getDate() < 10) ? '0' : '') + date.getDate()) + " " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":00";
+    let fullDate = date.getFullYear() + "-" + ((((date.getMonth() + 1) < 10) ? '0' : '') + (date.getMonth() + 1)) + "-" + (((date.getDate() < 10) ? '0' : '') + date.getDate()) + " " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":00";
     for(let j = 0 ; j < data.forecast.forecastday[0].hour.length ; j++) {
         if(data.forecast.forecastday[0].hour[j].time == fullDate) {
             startHour = data.forecast.forecastday[0].hour[j];
