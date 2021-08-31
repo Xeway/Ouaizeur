@@ -4,15 +4,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5CDB95"/>
+  <meta name="description" content="Ouaizeur, a UI/UX friendly and open-source weather app that indicates the current weather, the forecast within the day, the forecast tomorrow, and the forecast the day after tomorrow hour by hour.">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="src/favicon/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="src/favicon/android-chrome-192x192.png" sizes="192x192">
   <link rel="shortcut icon" href="src/favicon/android-chrome-512x512.png" sizes="512x512">
-  <link rel="shortcut icon" href="src/favicon/apple-touch-icon.png" sizes="180x180">
+  <link rel="apple-touch-icon" href="src/favicon/apple-touch-icon.png" sizes="180x180">
   <link rel="shortcut icon" href="src/favicon/favicon-16x16.png" sizes="16x16">
   <link rel="shortcut icon" href="src/favicon/favicon-32x32.png" sizes="32x32">
-  <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js" async></script>
   <script>
     window.addEventListener("load", () => {
       if ("serviceWorker" in navigator) {
@@ -59,7 +62,7 @@
     </div>
     <div class="additional-background"></div>
     <div class="layered-waves"></div>
-    <h3 id="slogan"><%= slogan %></h3>
+    <h2 id="slogan"><%= slogan %></h2>
     <input type="text" placeholder="<%= input %>" id="city-name"/>
     <button id="button"><%= button %></button>
   </header>

@@ -12,6 +12,18 @@
             "type": "image/png"
         },
         {
+            "src": "/src/favicon/maskable_icon_x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/src/favicon/maskable_icon_x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
             "src": "/src/favicon/apple-touch-icon.png",
             "sizes": "180x180",
             "type": "image/png"
@@ -36,5 +48,6 @@
     "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#5CDB95",
+    "background_color": "#379683",
     "prefer_related_applications": false
 }
