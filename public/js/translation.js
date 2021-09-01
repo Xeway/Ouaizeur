@@ -12,7 +12,9 @@ let french = {
         tomorrow: "Demain",
         dayAfterTomorrow: "Après-demain"
     },
-    titleFooter: "Ce site est open-source, n'hésitez pas à l'améliorer !"
+    titleFooter: "Ce site est open-source, n'hésitez pas à l'améliorer !",
+    descriptionInstall: "Téléchargez l'app.",
+    installButton: "Installer"
 };
 
 let english = {
@@ -29,7 +31,9 @@ let english = {
         tomorrow: "Tomorrow",
         dayAfterTomorrow: "The day after tomorrow"
     },
-    titleFooter: "This website is open-source, feel free to improve it!"
+    titleFooter: "This website is open-source, feel free to improve it!",
+    descriptionInstall: "Get the free app.",
+    installButton: "Install"
 };
 
 module.exports = {

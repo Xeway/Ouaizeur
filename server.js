@@ -41,7 +41,9 @@ app.get("/:lang", (request, response) => {
             today: languages.french.buttons.today,
             tomorrow: languages.french.buttons.tomorrow,
             dayAfterTomorrow: languages.french.buttons.dayAfterTomorrow,
-            titleFooter: languages.french.titleFooter
+            titleFooter: languages.french.titleFooter,
+            descriptionInstall: languages.french.descriptionInstall,
+            installButton: languages.french.installButton
         });
     } else if(request.params.lang === "en") {
         response.render("index.ejs", {
@@ -56,7 +58,9 @@ app.get("/:lang", (request, response) => {
             today: languages.english.buttons.today,
             tomorrow: languages.english.buttons.tomorrow,
             dayAfterTomorrow: languages.english.buttons.dayAfterTomorrow,
-            titleFooter: languages.english.titleFooter
+            titleFooter: languages.english.titleFooter,
+            descriptionInstall: languages.english.descriptionInstall,
+            installButton: languages.english.installButton
         });
     } else if(request.params.lang !== "fr" && request.params.lang !== "en") {
         if(request.cookies.language !== undefined) {

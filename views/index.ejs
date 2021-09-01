@@ -17,6 +17,35 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js" async></script>
   <script>
+    let deferredPrompt;
+    let buttonInstall = document.querySelector('#button-install');
+    let divPrompt = document.querySelector('.button-install-box');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      divPrompt.style.display = "block";
+    });
+
+    buttonInstall.addEventListener('click', (e) => {
+      divPrompt.style.display = "none";
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if(choiceResult.outcome === "accepted") {
+          console.log("User accepted the install prompt");
+        } else {
+          divPrompt.style.display = "block";
+        }
+        deferredPrompt = null;
+      });
+    });
+
+    window.addEventListener('appinstalled', (e) => {
+      divPrompt.style.display = "none";
+      deferredPrompt = null;
+    });
+  </script>
+  <script>
     window.addEventListener("load", () => {
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/service-worker.js");
@@ -265,6 +294,10 @@
         </a>
       </li>
     </ul>
+    <div class="button-install-box">
+      <p id="description-install"><%= descriptionInstall %></p>
+      <button id="button-install"><%= installButton %></button>
+    </div>
   </footer>
   <script src="js/loader.js"></script>
   <script src="js/background.js"></script>

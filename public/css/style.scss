@@ -223,6 +223,7 @@ header {
     }
 
     #button {
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -230,7 +231,6 @@ header {
         height: 3vw;
         font-size: 2.5vw;
         text-align: center;
-        border: none;
         border-radius: 2vw;
         padding: 1em;
         border: .35vw solid $bright-beige;
@@ -650,12 +650,13 @@ aside {
 
 footer {
     width: 100%;
-    height: 10vw;
+    height: 12vw;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10vw;
+    position: relative;
 
     a {
         width: 3vw;
@@ -691,6 +692,95 @@ footer {
                 width: 5vw;
                 height: 5vw;
             }
+        }
+    }
+
+    .button-install-box {
+        display: none;
+        position: absolute;
+        left: 5vw;
+        background-color: $dark-blue;
+        border-radius: 2vw;
+        width: 22vw;
+        height: 8vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: .25vw solid $bright-beige;
+        animation: breath 2s linear infinite;
+
+        #description-install {
+            font-size: 2vw;
+            color: $green;
+            white-space: nowrap;
+            margin: 0 0 .5vw 0;
+        }
+
+        #button-install {
+            cursor: pointer;
+            color: $dark-blue;
+            background-color: $bright-beige;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2vw;
+            width: 70%;
+            height: 38%;
+            white-space: nowrap;
+            font-size: 1.5vw;
+            margin: .5vw 0 0 0;
+            text-align: center;
+            border: .3vw solid $bright-beige;
+            overflow: hidden;
+
+            &:active {
+                background: $dark-blue;
+                color: $bright-beige;
+            }
+        }
+
+        @keyframes breath {
+            from {
+                opacity: 1;
+            } 50% {
+                opacity: .5;
+            } to {
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            width: 25vw;
+            height: 10vw;
+            border: .3vw solid $bright-beige;
+
+            #description-install {
+                font-size: 2.2vw;
+            }
+            
+            #button-install {
+                font-size: 2vw;
+                height: 40%;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+            width: 28vw;
+            height: 12vw;
+            border: .35vw solid $bright-beige;
+
+            #description-install {
+                font-size: 2.5vw;
+            }
+            
+            #button-install {
+                font-size: 2.5vw;
+                height: 45%;
+            }
+
         }
     }
 
