@@ -146,11 +146,17 @@
     .layered-waves {
       aspect-ratio: 960/150;
       width: 100vw;
-      background-image: url("src/svg/layered-waves.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
       margin: 0 0 0 0 !important;
+    }
+    #layered-wave {
+      display: block;
+      aspect-ratio: 960/150;
+      width: 100%;
+      height: 100%;
+      margin: auto;
     }
 
     .additional-background {
@@ -160,6 +166,194 @@
       top: 0;
       z-index: -1;
       margin: 0 0 0 0 !important;
+    }
+
+    section {
+      display: none;
+      position: relative;
+      padding-top: 3vw;
+      color: #05386b;
+      width: 90%;
+      height: 35vw;
+      margin: auto;
+      background-color: #379683;
+      /* Firefox */
+      /* IE10+ */
+      /* IE6,7 */
+      /* IE8 */
+      /* IE9,10 */
+    }
+    section #header-infos {
+      display: flex;
+      justify-content: space-between;
+    }
+    section #buttons-scale-forecast {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5vw;
+      font-weight: 500;
+      width: 18vw;
+    }
+    section #buttons-scale-forecast > * {
+      border-radius: 0.5vw;
+      color: #edf5e1;
+      width: 18vw;
+      text-align: center;
+      text-decoration: none;
+    }
+    section #buttons-scale-forecast .active-button-scale-forecast {
+      background-color: rgba(5, 56, 107, 0.25);
+      border: 0.2vw solid #05386b;
+      color: #8ee4af;
+    }
+    section #general-infos {
+      font-size: 1.8vw;
+    }
+    section #current-weather {
+      height: 20vw !important;
+      display: flex;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      font-size: 2vw;
+    }
+    section #current-weather img {
+      width: 12vw;
+      height: 12vw;
+    }
+    section #current-weather #current-condition {
+      font-weight: 500;
+      font-size: 2.5vw;
+    }
+    section #current-weather #current-temp {
+      margin-top: 2vw;
+    }
+    section #current-weather #current-temp #current-temp-c {
+      margin-right: 1vw;
+    }
+    section #current-weather #current-temp #current-temp-feelslike-c {
+      margin-left: 1vw;
+    }
+    section .forecast {
+      display: none;
+      width: 90%;
+      height: 15vw;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      margin-top: 2vw;
+    }
+    section .condition {
+      font-size: 2vw;
+      font-weight: 500;
+      border-bottom: 0.2vmax groove #05386b;
+      display: block;
+      width: 100%;
+    }
+    section .forecast-weather-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 1.8vw 0 1.8vw;
+    }
+    section .forecast-weather-box .hour {
+      font-size: 1.5vw;
+    }
+    section .forecast-weather-box .icon {
+      width: 5vw;
+      height: 5vw;
+    }
+    section .forecast-weather-box .temp-c {
+      font-size: 1.8vw;
+      font-weight: 400;
+    }
+    section .weather-boxes {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2vw;
+    }
+    @media screen and (max-width: 1200px) {
+      section {
+        height: 40vw;
+      }
+      section #buttons-scale-forecast {
+        font-size: 2vw;
+        width: 20vw;
+      }
+      section #general-infos {
+        font-size: 2.2vw;
+      }
+      section #current-weather {
+        font-size: 2.5vw;
+        height: 25vw !important;
+      }
+      section #current-weather img {
+        width: 14vw;
+        height: 14vw;
+      }
+      section #current-weather #current-condition {
+        font-size: 3vw;
+      }
+      section .forecast {
+        height: 20vw;
+        bottom: 25vw;
+      }
+      section .condition {
+        font-size: 3vw;
+      }
+      section .forecast-weather-box .hour {
+        font-size: 2.2vw;
+      }
+      section .forecast-weather-box .icon {
+        width: 6vw;
+        height: 6vw;
+      }
+      section .forecast-weather-box .temp-c {
+        font-size: 2vw;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      section {
+        height: 45vw;
+      }
+      section #buttons-scale-forecast {
+        font-size: 2.5vw;
+        width: 22vw;
+      }
+      section #general-infos {
+        font-size: 2.8vw;
+      }
+      section #current-weather {
+        font-size: 3vw;
+        height: 28vw !important;
+      }
+      section #current-weather img {
+        width: 16vw;
+        height: 16vw;
+      }
+      section #current-weather #current-condition {
+        font-size: 3.5vw;
+      }
+      section .condition {
+        font-size: 3.5vw;
+      }
+      section .forecast-weather-box .hour {
+        font-size: 2.5vw;
+      }
+      section .forecast-weather-box .icon {
+        width: 7vw;
+        height: 7vw;
+      }
+      section .forecast-weather-box .temp-c {
+        font-size: 2.2vw;
+      }
     }
 
     footer {
@@ -235,14 +429,189 @@
       </svg>
     </div>
     <div class="additional-background"></div>
-    <div class="layered-waves"></div>
+    <div class="layered-waves">
+      <svg width="960" height="150" viewBox="0 0 960 150" fill="none" xmlns="http://www.w3.org/2000/svg" id="layered-wave">
+        <rect width="960" height="150" fill="#E5E5E5"/>
+        <g id="layered-waves 1">
+        <path id="Vector" d="M960 0H0V300H960V0Z" fill="#379683"/>
+        <path id="Vector_2" d="M0 161L20 158.3C40 155.7 80 150.3 120 150.5C160 150.7 200 156.3 240 157.3C280 158.3 320 154.7 360 153.7C400 152.7 440 154.3 480 153.8C520 153.3 560 150.7 600 152C640 153.3 680 158.7 720 159.8C760 161 800 158 840 158.2C880 158.3 920 161.7 940 163.3L960 165V0H940C920 0 880 0 840 0C800 0 760 0 720 0C680 0 640 0 600 0C560 0 520 0 480 0C440 0 400 0 360 0C320 0 280 0 240 0C200 0 160 0 120 0C80 0 40 0 20 0H0V161Z" fill="#379683"/>
+        <path id="Vector_3" d="M0 139L20 136.7C40 134.3 80 129.7 120 127.3C160 125 200 125 240 126.2C280 127.3 320 129.7 360 131.7C400 133.7 440 135.3 480 133.7C520 132 560 127 600 123.3C640 119.7 680 117.3 720 116.3C760 115.3 800 115.7 840 116.8C880 118 920 120 940 121L960 122V0H940C920 0 880 0 840 0C800 0 760 0 720 0C680 0 640 0 600 0C560 0 520 0 480 0C440 0 400 0 360 0C320 0 280 0 240 0C200 0 160 0 120 0C80 0 40 0 20 0H0V139Z" fill="#38A489"/>
+        <path id="Vector_4" d="M0 113L20 110.7C40 108.3 80 103.7 120 100.5C160 97.3 200 95.7 240 94.2C280 92.7 320 91.3 360 93.2C400 95 440 100 480 103.2C520 106.3 560 107.7 600 106.8C640 106 680 103 720 100.5C760 98 800 96 840 95.2C880 94.3 920 94.7 940 94.8L960 95V0H940C920 0 880 0 840 0C800 0 760 0 720 0C680 0 640 0 600 0C560 0 520 0 480 0C440 0 400 0 360 0C320 0 280 0 240 0C200 0 160 0 120 0C80 0 40 0 20 0H0V113Z" fill="#3DB28E"/>
+        <path id="Vector_5" d="M0 78L20 77.3C40 76.7 80 75.3 120 75.7C160 76 200 78 240 78.5C280 79 320 78 360 78.8C400 79.7 440 82.3 480 81.3C520 80.3 560 75.7 600 75.8C640 76 680 81 720 81.3C760 81.7 800 77.3 840 76.2C880 75 920 77 940 78L960 79V0H940C920 0 880 0 840 0C800 0 760 0 720 0C680 0 640 0 600 0C560 0 520 0 480 0C440 0 400 0 360 0C320 0 280 0 240 0C200 0 160 0 120 0C80 0 40 0 20 0H0V78Z" fill="#44C092"/>
+        <path id="Vector_6" d="M0 46L20 45.7C40 45.3 80 44.7 120 46.2C160 47.7 200 51.3 240 52.7C280 54 320 53 360 52.5C400 52 440 52 480 49.7C520 47.3 560 42.7 600 44.2C640 45.7 680 53.3 720 55.3C760 57.3 800 53.7 840 52.7C880 51.7 920 53.3 940 54.2L960 55V0H940C920 0 880 0 840 0C800 0 760 0 720 0C680 0 640 0 600 0C560 0 520 0 480 0C440 0 400 0 360 0C320 0 280 0 240 0C200 0 160 0 120 0C80 0 40 0 20 0H0V46Z" fill="#4FCD94"/>
+        <path id="Vector_7" d="M0 24L20 26C40 28 80 32 120 31.7C160 31.3 200 26.7 240 22.8C280 19 320 16 360 17.8C400 19.7 440 26.3 480 27C520 27.7 560 22.3 600 19.7C640 17 680 17 720 17.7C760 18.3 800 19.7 840 21.7C880 23.7 920 26.3 940 27.7L960 29V0H940C920 0 880 0 840 0C800 0 760 0 720 0C680 0 640 0 600 0C560 0 520 0 480 0C440 0 400 0 360 0C320 0 280 0 240 0C200 0 160 0 120 0C80 0 40 0 20 0H0V24Z" fill="#5CDB95"/>
+        </g>
+      </svg>        
+    </div>
     <h3 id="offline">You are offline</h3>
     <button id="button">Refresh</button>
   </header>
+  <section>
+    <div id="header-infos">
+      <div id="general-infos">
+        <h3 id="name-city">Weather in <span id="name-city-span"></span></h3>
+        <h5 id="current-hour">Last update: <span id="current-hour-span"></span></h5>
+      </div>
+      <div id="buttons-scale-forecast">
+        <a href="#" id="button-current" class="active-button-scale-forecast current-weather">Currently</a>
+        <a href="#" id="button-today" class="today-weather">Today</a>
+        <a href="#" id="button-tomorrow" class="tomorrow-weather">Tomorrow</a>
+        <a href="#" id="button-after-tomorrow" class="after-tomorrow-weather">The day after tomorrow</a>
+      </div>
+    </div>
+    <div id="current-weather" class="active forecast current-weather">
+      <img src="" id="current-icon"/>
+      <h4 id="current-condition"></h4>
+      <h4 id="current-temp">
+        <span id="current-temp-c"></span>&nbsp;|
+        <span id="current-temp-feelslike-c"></span>
+      </h4>
+    </div>
+    <div id="today-weather" class="forecast today-weather">
+      <h4 class="condition"></h4>
+      <div class="weather-boxes" id="weather-boxes-today">
+        <div class="forecast-weather-box" id="today-h0">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h3">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h6">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h9">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h12">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h15">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h18">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-h21">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="today-24">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+      </div>
+    </div>
+    <div id="tomorrow-weather" class="forecast tomorrow-weather">
+      <h4 class="condition"></h4>
+      <div class="weather-boxes">
+        <div class="forecast-weather-box" id="tomorrow-h0">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h3">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h6">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h9">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h12">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h15">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h18">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="tomorrow-h21">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+      </div>
+    </div>
+    <div id="after-tomorrow-weather" class="forecast after-tomorrow-weather">
+      <h4 class="condition"></h4>
+      <div class="weather-boxes">
+        <div class="forecast-weather-box" id="after-tomorrow-h0">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h3">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h6">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h9">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h12">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h15">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h18">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+        <div class="forecast-weather-box" id="after-tomorrow-h21">
+          <h4 class="hour"></h4>
+          <img src="" class="icon"/>
+          <h4 class="temp-c"></h4>
+        </div>
+      </div>
+    </div>
+  </section>
   <footer>
     <ul>
       <li>
-        <a href="https://github.com/Xeway/Ouaizeur" title="This website is open-source, feel free to improve it!">
+        <a href="https://github.com/Xeway/Ouaizeur" title="This website is open-source, feel free to improve it!" id="link-github">
           <svg version="1.1" id="github" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="438.549px" height="438.549px" viewBox="0 0 438.549 438.549" style="enable-background:new 0 0 438.549 438.549;" xml:space="preserve">
             <g>
               <path d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
@@ -275,7 +644,33 @@
     let path = window.location.pathname;
     let page = path.split("/").pop();
 
-    if(page === "fr") {
+    function listCookies() {
+      let theCookies = document.cookie.split('; ');
+      let cookiesArray = [];
+      theCookies.forEach(theCookie => {
+          cookiesArray.push(theCookie);
+      });
+      return cookiesArray;
+    }
+
+    function getCookieValue(cookie) {
+      let cookieSplit = cookie.split("=");
+      return cookieSplit.pop();
+    }
+
+    let languageCookie;
+    listCookies().forEach(cookie => {
+      if(cookie.startsWith("language=")) {
+          languageCookie = cookie;
+      }
+    });
+
+    let languageCookieValue;
+    if(languageCookie !== undefined && languageCookie.startsWith("language=")) {
+      languageCookieValue = getCookieValue(languageCookie);
+    }
+    
+    if(page === "fr" || languageCookieValue === "fr") {
       let letters = document.querySelectorAll('.letters');
       let title = document.querySelector('#title');
 
@@ -312,10 +707,42 @@
 
       document.querySelector('#offline').textContent = "Tu es hors ligne";
       document.querySelector('#button').textContent = "Rafraîchir";
+      document.querySelector('#name-city').childNodes[0].nodeValue = "Météo à ";
+      document.querySelector('#current-hour').childNodes[0].nodeValue = "Dernière actualisation : ";
+      document.querySelector('#button-current').textContent = "Actuellement";
+      document.querySelector('#button-today').textContent = "Aujourd'hui";
+      document.querySelector('#button-tomorrow').textContent = "Demain";
+      document.querySelector('#button-after-tomorrow').textContent = "Après-demain";
+      document.querySelector('#link-github').setAttribute('title', 'Ce site est open-source, n\'hésitez pas à l\'améliorer !');
     }
   </script>
-  <script src="js/background.js"></script>
-  <script src="js/animation-blob.js"></script>
+  <script>
+    let backgroundSize = document.querySelector('.additional-background');
+
+    let sizeTitleIllustration = document.querySelector('#title-illustration');
+
+    function getMargin() {
+        let sizeMargin = parseFloat(window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").slice(0, window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").length - 2));
+
+        let totalSize = sizeTitleIllustration.offsetHeight + sizeMargin;
+        
+        backgroundSize.style.height = (totalSize + 2) + "px";
+    }
+
+    getMargin();
+
+    window.addEventListener('resize', getMargin);
+  </script>
+  <script>
+    const tween = KUTE.fromTo(
+      "#blob1",
+      {path: "#blob1"},
+      {path: "#blob2"},
+      {repeat: 999, duration: 3000, yoyo: true}
+    );
+
+    tween.start();
+  </script>
   <script>
     // Manual reload feature.
     document.querySelector("#button").addEventListener("click", () => {
@@ -346,6 +773,127 @@
     }
 
     checkNetworkAndReload();
+  </script>
+  <script>
+    let currentWeather = document.querySelector('#current-weather');
+    let todayWeather = document.querySelector('#today-weather');
+    let tomorrowWeather = document.querySelector('#tomorrow-weather');
+    let afterTomorrowWeather = document.querySelector('#after-tomorrow-weather');
+    let weatherBoxesToday = document.querySelector("#weather-boxes-today");
+    let startHour;
+
+    function fillElements(data) {
+        data = JSON.parse(data);
+        
+        let date = new Date(data.current.last_updated);
+        let month = date.getMonth() + 1;
+
+        let lastUpdatedDateFr = (((date.getDate() < 10) ? '0' : '') + date.getDate()) + "/" + (((month < 10) ? '0' : '') + month) + "/" + date.getFullYear() + " à " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":" + (((date.getMinutes() < 10) ? '0' : '') + date.getMinutes());
+        let lastUpdatedDateEn = date.getFullYear() + "-" + (((month < 10) ? '0' : '') + month) + "-" + (((date.getDate() < 10) ? '0' : '') + date.getDate()) + " at " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":00";
+
+        document.querySelector("#name-city-span").innerHTML = data.location.name + ", " + data.location.region + ", " + data.location.country;
+        if(languageCookieValue === "fr" || page === "fr") {
+            document.querySelector('#current-hour-span').innerHTML = lastUpdatedDateFr;
+        } else {
+            document.querySelector('#current-hour-span').innerHTML = lastUpdatedDateEn;
+        }
+
+        currentWeather.children[0].setAttribute("src", data.current.condition.icon);
+        currentWeather.children[1].innerHTML = data.current.condition.text;
+        currentWeather.children[2].children[0].innerHTML = "Température : " + data.current.temp_c + "°C";
+        currentWeather.children[2].children[1].innerHTML = "Ressenti : " + data.current.feelslike_c + "°C";
+
+        let fullDate = date.getFullYear() + "-" + (((month < 10) ? '0' : '') + month) + "-" + (((date.getDate() < 10) ? '0' : '') + date.getDate()) + " " + (((date.getHours() < 10) ? '0' : '') + date.getHours())  + ":00";
+        for(let j = 0 ; j < data.forecast.forecastday[0].hour.length ; j++) {
+            if(data.forecast.forecastday[0].hour[j].time == fullDate) {
+                startHour = data.forecast.forecastday[0].hour[j];
+            }
+        }
+
+        startHour = new Date(startHour.time).getHours();
+        
+        todayWeather.children[0].innerHTML = data.forecast.forecastday[0].day.condition.text;
+        tomorrowWeather.children[0].innerHTML = data.forecast.forecastday[1].day.condition.text;
+        afterTomorrowWeather.children[0].innerHTML = data.forecast.forecastday[2].day.condition.text;
+
+        let hoursArray = [];
+        for(let k = 0, m = 0 ; k < data.forecast.forecastday[0].hour.length ; k++, m += 3) {
+            if(startHour + m < data.forecast.forecastday[0].hour.length && todayWeather.children[1].children[k] != undefined) {
+                todayWeather.children[1].children[k].children[0].innerHTML = new Date(data.forecast.forecastday[0].hour[startHour + m].time).getHours() + ":00";
+                todayWeather.children[1].children[k].children[1].setAttribute("src", data.forecast.forecastday[0].hour[startHour + m].condition.icon);
+                todayWeather.children[1].children[k].children[2].innerHTML = data.forecast.forecastday[0].hour[startHour + m].temp_c + "°C";
+                hoursArray.push(startHour + m);
+            }
+        }
+
+        let lastHour = hoursArray[hoursArray.length - 1];
+
+        let startTomorrowHour = (lastHour + 3) - 24;
+
+        for(let r = 0 ; r < weatherBoxesToday.children.length ; r++) {
+            if(weatherBoxesToday.children[r].children[0].textContent === "" && weatherBoxesToday.children[r].children[1].currentSrc === "" && weatherBoxesToday.children[r].children[2].textContent === "") {
+                if(data.forecast.forecastday[1].hour[startTomorrowHour] != undefined) {
+                    todayWeather.children[1].children[r].children[0].innerHTML = new Date(data.forecast.forecastday[1].hour[startTomorrowHour].time).getHours() + ":00";
+                    todayWeather.children[1].children[r].children[1].setAttribute("src", data.forecast.forecastday[1].hour[startTomorrowHour].condition.icon);
+                    todayWeather.children[1].children[r].children[2].innerHTML = data.forecast.forecastday[1].hour[startTomorrowHour].temp_c + "°C";
+                    startTomorrowHour += 3;
+                }
+            }
+        }
+
+        for(let n = 1 ; n < data.forecast.forecastday.length ; n++) {
+            for(let p = 0, q = 0 ; p < data.forecast.forecastday[n].hour.length ; p += 3, q++) {
+                if(n == 1) {
+                    tomorrowWeather.children[1].children[q].children[0].innerHTML = new Date(data.forecast.forecastday[n].hour[p].time).getHours() + ":00";
+                    tomorrowWeather.children[1].children[q].children[1].setAttribute("src", data.forecast.forecastday[n].hour[p].condition.icon);
+                    tomorrowWeather.children[1].children[q].children[2].innerHTML = data.forecast.forecastday[n].hour[p].temp_c + "°C";
+                } else if (n == 2) {
+                    afterTomorrowWeather.children[1].children[q].children[0].innerHTML = new Date(data.forecast.forecastday[n].hour[p].time).getHours() + ":00";
+                    afterTomorrowWeather.children[1].children[q].children[1].setAttribute("src", data.forecast.forecastday[n].hour[p].condition.icon);
+                    afterTomorrowWeather.children[1].children[q].children[2].innerHTML = data.forecast.forecastday[n].hour[p].temp_c + "°C";
+                }
+            }
+        }
+    }
+
+    if(localStorage.getItem("weather") !== null) {
+      document.querySelector('section').style.display = "block";
+      fillElements(localStorage.getItem("weather"));
+    }
+  </script>
+  <script>
+    let buttonsScaleForecast = document.querySelector('#buttons-scale-forecast');
+    let forecastDivs = document.querySelectorAll('section .forecast');
+
+    for(let i = 0 ; i < buttonsScaleForecast.children.length ; i++) {
+
+        buttonsScaleForecast.children[i].addEventListener('click', (e) => {
+
+            e.preventDefault();
+
+            document.querySelectorAll("#buttons-scale-forecast a").forEach((btn) => {
+                btn.classList.remove("active-button-scale-forecast");
+            });
+
+            forecastDivs.forEach((div) => {
+                div.style.display = "none";
+            });
+            
+            if(!e.target.classList.contains("active-button-scale-forecast")) {
+                e.target.classList.add('active-button-scale-forecast');
+            }
+
+            forecastDivs.forEach((div) => {
+                div.classList.remove('active');
+            });
+
+            if(e.target.classList.contains("active-button-scale-forecast")) {
+                let className = e.target.classList[0];
+                let article = document.querySelector(`div.${className}`);
+                article.style.display = "flex";
+            }
+        });
+    }
   </script>
 </body>
 </html>

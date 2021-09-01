@@ -30,7 +30,7 @@ function listCookies() {
 
 function getCookieValue(cookie) {
     let cookieSplit = cookie.split("=");
-    return cookieSplit[1];
+    return cookieSplit.pop();
 }
 
 function fillElements(data, isStringified) {
@@ -144,8 +144,15 @@ button.addEventListener('click', (e) => {
         });
 });
 
-if(listCookies()[1] !== undefined && listCookies()[1].startsWith("city=")) {
-    city.value = getCookieValue(listCookies()[1]);
+let cityCookie;
+listCookies().forEach(cookie => {
+    if(cookie.startsWith("city=")) {
+        cityCookie = cookie;
+    }
+});
+
+if(cityCookie !== undefined && cityCookie.startsWith("city=")) {
+    city.value = getCookieValue(cityCookie);
 } else {
     city.value = "";
 }
