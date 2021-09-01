@@ -144,7 +144,7 @@ button.addEventListener('click', (e) => {
         });
 });
 
-if(listCookies()[1] !== undefined) {
+if(listCookies()[1] !== undefined && listCookies()[1].startsWith("city=")) {
     city.value = getCookieValue(listCookies()[1]);
 } else {
     city.value = "";

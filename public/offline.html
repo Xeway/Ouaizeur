@@ -237,7 +237,7 @@
     <div class="additional-background"></div>
     <div class="layered-waves"></div>
     <h3 id="offline">You are offline</h3>
-    <button id="button"></button>
+    <button id="button">Refresh</button>
   </header>
   <footer>
     <ul>
@@ -271,6 +271,49 @@
       </li>
     </ul>
   </footer>
+  <script>
+    let path = window.location.pathname;
+    let page = path.split("/").pop();
+
+    if(page === "fr") {
+      let letters = document.querySelectorAll('.letters');
+      let title = document.querySelector('#title');
+
+      letters[0].textContent = "H";
+      letters[1].textContent = "O";
+      letters[2].textContent = "R";
+      letters[3].textContent = "S";
+      letters[4].innerHTML = "&nbsp;";
+      letters[5].textContent = "L";
+      letters[6].textContent = "I";
+
+      letters[0].setAttribute("id", "h")
+      letters[1].setAttribute("id", "o")
+      letters[2].setAttribute("id", "r")
+      letters[3].setAttribute("id", "s")
+      letters[4].setAttribute("id", "space")
+      letters[5].setAttribute("id", "l")
+      letters[6].setAttribute("id", "i")
+
+      let seventhSpan = document.createElement('span');
+      let eightthSpan = document.createElement('span');
+      let ninethSpan = document.createElement('span');
+
+      seventhSpan.setAttribute("id", "g");
+      eightthSpan.setAttribute("id", "n");
+      ninethSpan.setAttribute("id", "e");
+      seventhSpan.textContent = "G";
+      eightthSpan.textContent = "N";
+      ninethSpan.textContent = "E";
+
+      title.appendChild(seventhSpan);
+      title.appendChild(eightthSpan);
+      title.appendChild(ninethSpan);
+
+      document.querySelector('#offline').textContent = "Tu es hors ligne";
+      document.querySelector('#button').textContent = "Rafraîchir";
+    }
+  </script>
   <script src="js/background.js"></script>
   <script src="js/animation-blob.js"></script>
   <script>
