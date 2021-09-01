@@ -14,7 +14,6 @@ self.addEventListener('install', (event) => {
         return cache.add(new Request(path, {cache: "reload"}));
       })
     );
-    //await cache.add(new Request(OFFLINE_URL, {cache: "reload"}));
   })());
 
   self.skipWaiting();
@@ -45,9 +44,7 @@ self.addEventListener('fetch', (event) => {
         return await cache.match(OFFLINE_URL);
       }
     })());
-  }
-  
-  /*else if(CACHED_FILES.includes(event.request.url)) {
+  } else if(CACHED_FILES.includes(event.request.url)) {
     event.respondWith(caches.match(event.request));
-  }*/
+  }
 });
