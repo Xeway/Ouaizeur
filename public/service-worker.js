@@ -3,7 +3,17 @@ const CACHE_NAME = "offline";
 const OFFLINE_URL = "offline.html";
 const BASE = location.protocol + "//" + location.host;
 const CACHED_FILES = [
-  "https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"
+  "https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js",
+  `${BASE}/src/emojis/sun.png`,
+  `${BASE}/src/emojis/thermometer.png`,
+  `${BASE}/src/emojis/cloud.png`,
+  `${BASE}/src/emojis/cloud-with-rain.png`,
+  `${BASE}/src/emojis/thunder-cloud-and-rain.png`,
+  `${BASE}/src/emojis/wind.png`,
+  `${BASE}/src/emojis/cloud-with-snow.png`,
+  `${BASE}/src/emojis/rainbow.png`,
+  `${BASE}/src/emojis/cyclone.png`,
+  `${BASE}/src/emojis/full-moon.png`
 ];
 
 self.addEventListener('install', (event) => {

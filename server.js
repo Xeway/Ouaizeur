@@ -31,6 +31,7 @@ app.get("/:lang", (request, response) => {
     if(request.params.lang === "fr") {
         response.render("index.ejs", {
             language: languages.french.language,
+            description: languages.french.description,
             title: languages.french.title,
             slogan: languages.french.slogan,
             input: languages.french.input,
@@ -48,6 +49,7 @@ app.get("/:lang", (request, response) => {
     } else if(request.params.lang === "en") {
         response.render("index.ejs", {
             language: languages.english.language,
+            description: languages.english.description,
             title: languages.english.title,
             slogan: languages.english.slogan,
             input: languages.english.input,
