@@ -30,14 +30,14 @@ body {
 }
 @media screen and (max-width: 1200px) {
   #flags {
-    width: 15vw;
-    height: 7.5vw;
+    width: 18vw;
+    height: 9vw;
   }
 }
 @media screen and (max-width: 600px) {
   #flags {
-    width: 20vw;
-    height: 10vw;
+    width: 22vw;
+    height: 11vw;
     top: 2vw;
   }
 }
@@ -134,6 +134,7 @@ header {
   justify-content: center;
   align-items: center;
   color: #05386b;
+  margin-top: 5vw;
 }
 header > * {
   margin-top: 2.5vw;
@@ -224,44 +225,58 @@ header #button:active {
   background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, darkViolet, magenta, red);
 }
 @media screen and (max-width: 1200px) {
+  header {
+    margin-top: 12vw;
+  }
   header #title-illustration {
     width: 70vw;
     height: 30vw;
   }
   header #title > * {
-    font-size: 8vw !important;
+    font-size: 12vw !important;
+    -webkit-text-stroke: 0.4vw;
   }
   header #slogan {
-    font-size: 3vw;
+    font-size: 4vw;
   }
   header #city-name {
-    height: 5vw;
+    height: 6vw;
     padding: 1.2em;
+    width: 70%;
+    font-size: 3vw;
   }
   header #button {
-    height: 4vw;
-    width: 45%;
+    height: 5vw;
+    width: 50%;
+    font-size: 4vw;
     border: 0.4vw solid #edf5e1;
   }
 }
 @media screen and (max-width: 600px) {
+  header {
+    margin-top: 15vw;
+  }
   header #title-illustration {
     width: 80vw;
     height: 35vw;
   }
   header #title > * {
-    font-size: 9vw !important;
+    -webkit-text-stroke: 0.45vw;
+    font-size: 14vw !important;
   }
   header #slogan {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   header #city-name {
-    height: 6vw;
+    height: 7vw;
+    font-size: 4vw;
     padding: 1.4em;
+    width: 75%;
   }
   header #button {
-    height: 5.5vw;
-    width: 50%;
+    height: 6vw;
+    width: 55%;
+    font-size: 4.5vw;
     border: 0.45vw solid #edf5e1;
   }
 }
@@ -309,24 +324,31 @@ section #buttons-scale-forecast {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.5vw;
   font-weight: 500;
-  width: 18vw;
+  width: 20vw;
 }
 section #buttons-scale-forecast > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4vw;
   border-radius: 0.5vw;
   color: #edf5e1;
-  width: 18vw;
+  width: 100%;
+  font-size: 2vw;
   text-align: center;
   text-decoration: none;
+}
+section #buttons-scale-forecast #button-after-tomorrow {
+  height: 5.2vw;
 }
 section #buttons-scale-forecast .active-button-scale-forecast {
   background-color: rgba(5, 56, 107, 0.25);
   border: 0.2vw solid #05386b;
   color: #8ee4af;
 }
-section #general-infos {
-  font-size: 1.8vw;
+section #general-infos > * {
+  font-size: 2vw;
 }
 @-moz-document url-prefix() {
   section #loader-api {
@@ -360,7 +382,7 @@ section #loader-api {
   height: 22vw;
   margin: auto;
   position: absolute;
-  top: 12vw;
+  top: 25vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -456,7 +478,7 @@ section .forecast {
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: 2vw;
+  margin-top: 4vw;
 }
 section .condition {
   font-size: 2vw;
@@ -493,29 +515,42 @@ section .weather-boxes {
 }
 @media screen and (max-width: 1200px) {
   section {
-    height: 40vw;
+    height: 50vw;
+  }
+  section #header-infos {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
   section #buttons-scale-forecast {
-    font-size: 2vw;
     width: 20vw;
+    flex-direction: row;
+    margin-top: 3vw;
+    width: 100%;
   }
-  section #general-infos {
-    font-size: 2.2vw;
+  section #buttons-scale-forecast > * {
+    font-size: 2.5vw;
+    height: 5vw;
+    width: 25%;
+    margin: 0 2vw 0 2vw;
+  }
+  section #general-infos > * {
+    font-size: 2.5vw;
   }
   section #loader-api {
-    top: 15vw;
-    height: 25vw;
+    top: 20vw;
+    height: 32vw;
   }
   section #current-weather {
-    font-size: 2.5vw;
-    height: 25vw !important;
+    font-size: 3vw;
+    height: 28vw !important;
   }
   section #current-weather img {
-    width: 14vw;
-    height: 14vw;
+    width: 18vw;
+    height: 18vw;
   }
   section #current-weather #current-condition {
-    font-size: 3vw;
+    font-size: 3.5vw;
   }
   section .forecast {
     height: 20vw;
@@ -525,47 +560,7 @@ section .weather-boxes {
     font-size: 3vw;
   }
   section .forecast-weather-box .hour {
-    font-size: 2.2vw;
-  }
-  section .forecast-weather-box .icon {
-    width: 6vw;
-    height: 6vw;
-  }
-  section .forecast-weather-box .temp-c {
-    font-size: 2vw;
-  }
-}
-@media screen and (max-width: 600px) {
-  section {
-    height: 45vw;
-  }
-  section #buttons-scale-forecast {
-    font-size: 2.5vw;
-    width: 22vw;
-  }
-  section #general-infos {
-    font-size: 2.8vw;
-  }
-  section #loader-api {
-    top: 18vw;
-    height: 28vw;
-  }
-  section #current-weather {
-    font-size: 3vw;
-    height: 28vw !important;
-  }
-  section #current-weather img {
-    width: 16vw;
-    height: 16vw;
-  }
-  section #current-weather #current-condition {
-    font-size: 3.5vw;
-  }
-  section .condition {
-    font-size: 3.5vw;
-  }
-  section .forecast-weather-box .hour {
-    font-size: 2.5vw;
+    font-size: 2.4vw;
   }
   section .forecast-weather-box .icon {
     width: 7vw;
@@ -573,6 +568,54 @@ section .weather-boxes {
   }
   section .forecast-weather-box .temp-c {
     font-size: 2.2vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  section {
+    height: 60vw;
+  }
+  section #buttons-scale-forecast {
+    width: 22vw;
+    width: 100%;
+  }
+  section #buttons-scale-forecast > * {
+    font-size: 3.5vw;
+    height: 5vw;
+  }
+  section #buttons-scale-forecast #button-after-tomorrow {
+    height: 7vw;
+    width: 35%;
+  }
+  section #general-infos > * {
+    font-size: 3.5vw;
+  }
+  section #loader-api {
+    top: 24vw;
+    height: 35vw;
+  }
+  section #current-weather {
+    font-size: 4vw;
+    height: 32vw !important;
+  }
+  section #current-weather img {
+    width: 20vw;
+    height: 20vw;
+  }
+  section #current-weather #current-condition {
+    font-size: 4.5vw;
+  }
+  section .condition {
+    font-size: 4vw;
+  }
+  section .forecast-weather-box .hour {
+    font-size: 2.8vw;
+  }
+  section .forecast-weather-box .icon {
+    width: 8vw;
+    height: 8vw;
+  }
+  section .forecast-weather-box .temp-c {
+    font-size: 2.4vw;
   }
 }
 
