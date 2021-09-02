@@ -1,5 +1,6 @@
 let french = {
     language: "fr",
+    description: "Ouaizeur : l'app météo conviviale, fun et open-source.",
     title: "Ouaizeur | Rencontre des journées chaudes dans ta région",
     slogan: "Tu veux rencontrer des journées chaudes 🔥 (ou pas) dans ta région ?",
     input:  "Nom de ton bled",
@@ -19,6 +20,7 @@ let french = {
 
 let english = {
     language: "en",
+    description: "Ouaizeur: a UI/UX friendly, fun and open-source weather app.",
     title: "Ouaizeur | Meet hot days in your area",
     slogan: "Wanna meet some hot days 🔥 (or not) in your area?",
     input:  "Name of your town",
