@@ -1,7 +1,7 @@
 # Ouaizeur
 Fun weather website
 
-This website is open-source and probably needs more functionnality.
+This website is open-source and probably needs more functionnality. Here is the link : https://ouaizeur.herokuapp.com/
 
 I'm fetching the forecast data with https://www.weatherapi.com/, I've the free version so please don't spam requests, because my API keys is limited in requests/day.
 
