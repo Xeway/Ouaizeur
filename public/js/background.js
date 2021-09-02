@@ -2,10 +2,12 @@ let backgroundSize = document.querySelector('.additional-background');
 
 let sizeTitleIllustration = document.querySelector('#title-illustration');
 
+let marginHeader = document.querySelector('header');
+
 function getMargin() {
     let sizeMargin = parseFloat(window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").slice(0, window.getComputedStyle(sizeTitleIllustration, null).getPropertyValue("margin-top").length - 2));
-
-    let totalSize = sizeTitleIllustration.offsetHeight + sizeMargin;
+    let sizeMarginHeader = parseFloat(window.getComputedStyle(marginHeader, null).getPropertyValue("margin-top").slice(0, window.getComputedStyle(marginHeader, null).getPropertyValue("margin-top").length - 2));
+    let totalSize = sizeTitleIllustration.offsetHeight + sizeMargin + sizeMarginHeader;
     
     backgroundSize.style.height = (totalSize + 2) + "px";
 }

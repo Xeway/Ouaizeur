@@ -88,13 +88,13 @@ body {
     }
 
     @media screen and (max-width: 1200px) {
-        width: 15vw;
-        height: 7.5vw;
+        width: 18vw;
+        height: 9vw;
     }
 
     @media screen and (max-width: 600px) {
-        width: 20vw;
-        height: 10vw;
+        width: 22vw;
+        height: 11vw;
         top: 2vw;
     }
 }
@@ -147,6 +147,7 @@ header {
     justify-content: center;
     align-items: center;
     color: $dark-blue;
+    margin-top: 5vw;
 
     & > * {
         margin-top: 2.5vw;
@@ -247,6 +248,8 @@ header {
     }
 
     @media screen and (max-width: 1200px) {
+        margin-top: 12vw;
+
         #title-illustration {
             width: 70vw;
             height: 30vw;
@@ -254,27 +257,32 @@ header {
         
         #title {
             & > * {
-                font-size: 8vw !important;
+                font-size: 12vw !important;
+                -webkit-text-stroke: .4vw;
             }
         }
 
         #slogan {
-            @include font-size(2+1);
+            @include font-size(2+2);
         }
 
         #city-name {
-            height: 5vw;
+            height: 6vw;
             padding: 1.2em;
+            width: 70%;
+            font-size: 3vw;
         }
 
         #button {
-            height: 4vw;
-            width: 45%;
+            height: 5vw;
+            width: 50%;
+            font-size: 4vw;
             border: .4vw solid $bright-beige;
         }
     }
 
     @media screen and (max-width: 600px) {
+        margin-top: 15vw;
         #title-illustration {
             width: 80vw;
             height: 35vw;
@@ -282,22 +290,26 @@ header {
         
         #title {
             & > * {
-                font-size: 9vw !important;
+                -webkit-text-stroke: .45vw;
+                font-size: 14vw !important;
             }
         }
 
         #slogan {
-            @include font-size(2+1.5);
+            @include font-size(2+2.5);
         }
 
         #city-name {
-            height: 6vw;
+            height: 7vw;
+            font-size: 4vw;
             padding: 1.4em;
+            width: 75%;
         }
 
         #button {
-            height: 5.5vw;
-            width: 50%;
+            height: 6vw;
+            width: 55%;
+            font-size: 4.5vw;
             border: .45vw solid $bright-beige;
         }
     }
@@ -342,16 +354,24 @@ section {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 1.5vw;
         font-weight: 500;
-        width: 18vw;
+        width: 20vw;
 
         & > * {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 4vw;
             border-radius: .5vw;
             color: $bright-beige;
-            width: 18vw;
+            width: 100%;
+            font-size: 2vw;
             text-align: center;
             text-decoration: none;
+        }
+
+        #button-after-tomorrow {
+            height: 5.2vw;
         }
 
         .active-button-scale-forecast {
@@ -362,7 +382,9 @@ section {
     }
 
     #general-infos {
-        font-size: 1.8vw;
+        & > * {
+            font-size: 2vw;
+        }
     }
 
     /* Firefox */
@@ -407,7 +429,7 @@ section {
         height: 22vw;
         margin: auto;
         position: absolute;
-        top: 12vw;
+        top: 25vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -465,7 +487,7 @@ section {
         justify-content: center;
         align-items: center;
         margin: auto;
-        margin-top: 2vw;
+        margin-top: 4vw;
     }
 
     .condition {
@@ -508,33 +530,51 @@ section {
     }
 
     @media screen and (max-width: 1200px) {
-        height: 40vw;
+        height: 50vw;
+
+        #header-infos {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start
+        }
         
         #buttons-scale-forecast {
-            font-size: 2vw;
             width: 20vw;
+            flex-direction: row;
+            margin-top: 3vw;
+            width: 100%;
+
+            & > * {
+                font-size: 2.5vw;
+                height: 5vw;
+                width: 25%;
+                margin: 0 2vw 0 2vw;
+            }
         }
 
         #general-infos {
-            font-size: 2.2vw;
+            & > * {
+                font-size: 2.5vw;
+            }
         }
+    
 
         #loader-api {
-            top: 15vw;
-            height: 25vw;
+            top: 20vw;
+            height: 32vw;
         }
 
         #current-weather {
-            font-size: 2.5vw;
-            height: 25vw !important;
+            font-size: 3vw;
+            height: 28vw !important;
 
             img {
-                width: 14vw;
-                height: 14vw;
+                width: 18vw;
+                height: 18vw;
             }
 
             #current-condition {
-                font-size: 3vw;
+                font-size: 3.5vw;
             }
         }
 
@@ -549,58 +589,7 @@ section {
 
         .forecast-weather-box {
             .hour {
-                font-size: 2.2vw;
-            }
-    
-            .icon {
-                width: 6vw;
-                height: 6vw;
-            }
-    
-            .temp-c {
-                font-size: 2vw;
-            }
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        height: 45vw;
-        
-        #buttons-scale-forecast {
-            font-size: 2.5vw;
-            width: 22vw;
-        }
-
-        #general-infos {
-            font-size: 2.8vw;
-        }
-
-        #loader-api {
-            top: 18vw;
-            height: 28vw;
-        }
-
-        #current-weather {
-            font-size: 3vw;
-            height: 28vw !important;
-
-            img {
-                width: 16vw;
-                height: 16vw;
-            }
-
-            #current-condition {
-                font-size: 3.5vw;
-            }
-        }
-
-        .condition {
-            font-size: 3.5vw;
-        }
-
-        .forecast-weather-box {
-            .hour {
-                font-size: 2.5vw;
+                font-size: 2.4vw;
             }
     
             .icon {
@@ -610,6 +599,70 @@ section {
     
             .temp-c {
                 font-size: 2.2vw;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        height: 60vw;
+        
+        #buttons-scale-forecast {
+            width: 22vw;
+            width: 100%;
+
+            & > * {
+                font-size: 3.5vw;
+                height: 5vw;
+            }
+
+            #button-after-tomorrow {
+                height: 7vw;
+                width: 35%;
+            }
+        }
+
+        #general-infos {
+            & > * {
+                font-size: 3.5vw;
+            }
+        }
+    
+
+        #loader-api {
+            top: 24vw;
+            height: 35vw;
+        }
+
+        #current-weather {
+            font-size: 4vw;
+            height: 32vw !important;
+
+            img {
+                width: 20vw;
+                height: 20vw;
+            }
+
+            #current-condition {
+                font-size: 4.5vw;
+            }
+        }
+
+        .condition {
+            font-size: 4vw;
+        }
+
+        .forecast-weather-box {
+            .hour {
+                font-size: 2.8vw;
+            }
+    
+            .icon {
+                width: 8vw;
+                height: 8vw;
+            }
+    
+            .temp-c {
+                font-size: 2.4vw;
             }
         }
     }
