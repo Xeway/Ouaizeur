@@ -614,6 +614,10 @@ section {
                 padding: .5vw 1vw .5vw 1vw;
             }
 
+            :not(#button-after-tomorrow) {
+                padding: 0;
+            }
+
             #button-after-tomorrow {
                 height: 8.2vw;
                 width: 35%;
